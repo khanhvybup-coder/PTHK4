@@ -1637,10 +1637,13 @@
     };
     startOnline();
     pollTimer = setInterval(() => {
+      const realtimeReady = NETLIFY_POLLING
+        ? window.KTHSAuth?.isRealtimeConnected?.() === true
+        : eventSource?.readyState === EventSource.OPEN;
       if (document.visibilityState === 'visible'
         && (!window.KTHSAuth || window.KTHSAuth.isAuthenticated())
-        && (NETLIFY_POLLING || eventSource?.readyState !== EventSource.OPEN)) loadState({ quiet: true });
-    }, NETLIFY_POLLING ? 30000 : 15000);
+        && !realtimeReady) loadState({ quiet: true });
+    }, 60000);
     window.addEventListener('kths:authchange', () => {
       if (window.KTHSIsAuthenticated?.() === true) startOnline();
       else {
