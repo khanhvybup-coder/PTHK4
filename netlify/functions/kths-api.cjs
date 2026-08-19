@@ -286,7 +286,11 @@ async function route(event) {
     delete command.actorId;
     const result = executeCommand(current, command);
     if (!result.duplicate) await persistState(current.version, result.state);
-    return json(200, result);
+    // The browser can apply the changed loan/inventory/room and event locally.
+    // Keep the authoritative full state on Supabase, but avoid sending the
+    // entire history and inventory on every button click.
+    const { state: _fullState, ...compactResult } = result;
+    return json(200, compactResult);
   }
 
   if (endpoint === 'uploads') {
