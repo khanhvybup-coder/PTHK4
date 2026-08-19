@@ -14,6 +14,8 @@ const {
 const stateId = 'main';
 const maxUploadBytes = 5 * 1024 * 1024;
 const uploadBucket = 'kths-uploads';
+const authCache = new Map();
+const authCacheTtlMs = 20000;
 const imageTypes = new Map([
   ['image/jpeg', { extension: '.jpg', matches: (buffer) => buffer.length >= 3 && buffer[0] === 0xff && buffer[1] === 0xd8 && buffer[2] === 0xff }],
   ['image/png', { extension: '.png', matches: (buffer) => buffer.length >= 8 && buffer.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a])) }],
@@ -74,6 +76,9 @@ async function resolveAuth(event) {
   const token = bearerToken(event);
   if (!token) throw new ApiError(401, 'AUTH_REQUIRED', 'Vui lòng đăng nhập để tiếp tục.');
 
+  const cached = authCache.get(token);
+  if (cached && cached.expiresAt > Date.now()) return cached.value;
+
   const { url, publishableKey } = env();
   const userResponse = await fetch(`${url}/auth/v1/user`, {
     headers: { apikey: publishableKey, authorization: `Bearer ${token}`, accept: 'application/json' }
@@ -90,7 +95,13 @@ async function resolveAuth(event) {
   const profile = Array.isArray(profiles) ? profiles[0] : null;
   const staffKey = String(profile?.staff_key || '').trim();
   if (!profile || !staffKey) throw new ApiError(403, 'PROFILE_REQUIRED', 'Tài khoản chưa được gắn với người dùng KTHS.');
-  return { authUser, profile, staffKey };
+  const value = { authUser, profile, staffKey };
+  authCache.set(token, { value, expiresAt: Date.now() + authCacheTtlMs });
+  if (authCache.size > 100) {
+    const oldest = authCache.keys().next().value;
+    if (oldest) authCache.delete(oldest);
+  }
+  return value;
 }
 
 function publicProfile(profile) {
