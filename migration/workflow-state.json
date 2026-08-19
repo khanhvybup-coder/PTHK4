@@ -1,0 +1,4476 @@
+{
+  "schemaVersion": 3,
+  "version": 101,
+  "nextSequence": 57,
+  "updatedAt": "2026-08-16T12:54:32.700Z",
+  "staff": {
+    "teacher": {
+      "name": "Giáo viên đăng ký",
+      "role": "teacher",
+      "title": "GV"
+    },
+    "thuong": {
+      "name": "Nguyễn Tấn Thương",
+      "role": "approver",
+      "title": "PTK"
+    },
+    "cong": {
+      "name": "Lê Văn Công",
+      "role": "approver",
+      "title": "PTK"
+    },
+    "tot": {
+      "name": "Nguyễn Tốt",
+      "role": "teacher",
+      "title": "PTK"
+    },
+    "thanh": {
+      "name": "Đậu Trung Thành",
+      "role": "teacher",
+      "title": "PTK"
+    },
+    "huan": {
+      "name": "Trần Xuân Huấn",
+      "role": "manager",
+      "title": "Cán bộ quản lý"
+    },
+    "be": {
+      "name": "Nguyễn Văn Bé",
+      "role": "teacher",
+      "title": "GV"
+    },
+    "quan": {
+      "name": "Phạm Minh Quân",
+      "role": "teacher",
+      "title": "GV"
+    }
+  },
+  "rooms": [
+    {
+      "id": "source-0",
+      "name": "Phòng 1 - CS155",
+      "function": "Trung tâm KTPCTP",
+      "capacity": 10,
+      "operationalStatus": "Tốt",
+      "custom": false,
+      "createdAt": null,
+      "updatedAt": null
+    },
+    {
+      "id": "source-1",
+      "name": "Phòng 2 - CS155",
+      "function": "Phòng máy tính",
+      "capacity": 20,
+      "operationalStatus": "Tốt",
+      "custom": false,
+      "createdAt": null,
+      "updatedAt": null
+    },
+    {
+      "id": "source-2",
+      "name": "Phòng 3 - CS155",
+      "function": "Thực hành giám định KTHS",
+      "capacity": 20,
+      "operationalStatus": "Tốt",
+      "custom": false,
+      "createdAt": null,
+      "updatedAt": null
+    },
+    {
+      "id": "source-3",
+      "name": "Phòng 1 - CS200",
+      "function": "Phòng học CLC",
+      "capacity": 20,
+      "operationalStatus": "Tốt",
+      "custom": false,
+      "createdAt": null,
+      "updatedAt": null
+    },
+    {
+      "id": "source-4",
+      "name": "Phòng 2 - CS200",
+      "function": "Thực hành KNHT",
+      "capacity": 10,
+      "operationalStatus": "Tốt",
+      "custom": false,
+      "createdAt": null,
+      "updatedAt": null
+    }
+  ],
+  "loans": [
+    {
+      "id": "PM-2026-0056",
+      "sequence": 56,
+      "borrowerId": "cong",
+      "borrowerKey": "cong",
+      "borrowerName": "Lê Văn Công",
+      "room": "Phòng 2 - CS155",
+      "purpose": "Thực hành",
+      "borrowDate": "2026-08-16",
+      "expectedReturnDate": "2026-08-18",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-006",
+          "name": "Kính hiển vi soi nổi kết nối camera",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "createdAt": "2026-08-16T08:04:22.202Z",
+      "updatedAt": "2026-08-16T12:54:32.700Z",
+      "requestedLeaderId": "cong",
+      "requestedLeaderKey": "cong",
+      "requestedLeaderName": "Lê Văn Công",
+      "managerRequestNote": "Đưa ra ngoài",
+      "leaderDecision": "approve",
+      "leaderNote": "Đồng ý",
+      "leaderRespondedAt": "2026-08-16T08:05:22.610Z",
+      "managerDecision": "approve",
+      "managerNote": "Đồng ý",
+      "managerDecidedAt": "2026-08-16T08:05:32.618Z",
+      "handoff": {
+        "recipientId": "cong",
+        "recipientName": "Lê Văn Công",
+        "room": "Phòng 2 - CS155",
+        "date": "2026-08-16",
+        "time": "10:45",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-006",
+            "name": "Kính hiển vi soi nổi kết nối camera",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-16T08:05:35.721Z"
+      },
+      "returnRequest": {
+        "returnedBy": "cong",
+        "returnedByName": "Lê Văn Công",
+        "room": "Phòng 2 - CS155",
+        "date": "2026-08-16",
+        "time": "19:54",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-006",
+            "name": "Kính hiển vi soi nổi kết nối camera",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-16T12:54:11.810Z"
+      },
+      "returnConfirmation": {
+        "note": "",
+        "managerNote": "",
+        "generalNote": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-006",
+            "name": "Kính hiển vi soi nổi kết nối camera",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-16T12:54:32.700Z"
+      }
+    },
+    {
+      "id": "PM-2026-0055",
+      "sequence": 55,
+      "borrowerId": "huan",
+      "borrowerKey": "huan",
+      "borrowerName": "Trần Xuân Huấn",
+      "room": "Phòng 2 - CS155",
+      "purpose": "Thực hành",
+      "borrowDate": "2026-08-16",
+      "expectedReturnDate": "2026-08-18",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-001",
+          "name": "Máy ảnh kỹ thuật số (kèm ống kính tele và macro)",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "createdAt": "2026-08-16T06:17:07.671Z",
+      "updatedAt": "2026-08-16T08:06:40.512Z",
+      "managerDecision": "approve",
+      "managerNote": "Đưa ra ngoài",
+      "managerDecidedAt": "2026-08-16T08:05:03.288Z",
+      "handoff": {
+        "recipientId": "huan",
+        "recipientName": "Trần Xuân Huấn",
+        "room": "Phòng 2 - CS155",
+        "date": "2026-08-16",
+        "time": "10:45",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-001",
+            "name": "Máy ảnh kỹ thuật số (kèm ống kính tele và macro)",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-16T08:05:09.976Z"
+      },
+      "returnRequest": {
+        "returnedBy": "huan",
+        "returnedByName": "Trần Xuân Huấn",
+        "room": "Phòng 2 - CS155",
+        "date": "2026-08-16",
+        "time": "15:06",
+        "note": "HƯ",
+        "equipment": [
+          {
+            "assetId": "A-STT-001",
+            "name": "Máy ảnh kỹ thuật số (kèm ống kính tele và macro)",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-16T08:06:38.040Z"
+      },
+      "returnConfirmation": {
+        "note": "",
+        "managerNote": "",
+        "generalNote": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-001",
+            "name": "Máy ảnh kỹ thuật số (kèm ống kính tele và macro)",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-16T08:06:40.512Z"
+      }
+    },
+    {
+      "id": "PM-2026-0054",
+      "sequence": 54,
+      "borrowerId": "huan",
+      "borrowerKey": "huan",
+      "borrowerName": "Trần Xuân Huấn",
+      "room": "Phòng 2 - CS155",
+      "purpose": "Thực hành",
+      "borrowDate": "2026-08-16",
+      "expectedReturnDate": "2026-08-18",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-004",
+          "name": "Đèn tử ngoại",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "createdAt": "2026-08-15T22:58:02.038Z",
+      "updatedAt": "2026-08-16T08:06:54.953Z",
+      "managerDecision": "approve",
+      "managerNote": "",
+      "managerDecidedAt": "2026-08-15T22:58:06.134Z",
+      "handoff": {
+        "recipientId": "huan",
+        "recipientName": "Trần Xuân Huấn",
+        "room": "Phòng 2 - CS155",
+        "date": "2026-08-16",
+        "time": "10:45",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-004",
+            "name": "Đèn tử ngoại",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T23:23:45.228Z"
+      },
+      "returnRequest": {
+        "returnedBy": "huan",
+        "returnedByName": "Trần Xuân Huấn",
+        "room": "Phòng 2 - CS155",
+        "date": "2026-08-16",
+        "time": "15:06",
+        "note": "HƯ",
+        "equipment": [
+          {
+            "assetId": "A-STT-004",
+            "name": "Đèn tử ngoại",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-16T08:06:47.360Z"
+      },
+      "returnConfirmation": {
+        "note": "Đúng",
+        "managerNote": "Đúng",
+        "generalNote": "Sửa",
+        "equipment": [
+          {
+            "assetId": "A-STT-004",
+            "name": "Đèn tử ngoại",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-16T08:06:54.953Z"
+      }
+    },
+    {
+      "id": "PM-2026-0053",
+      "sequence": 53,
+      "borrowerId": "huan",
+      "borrowerKey": "huan",
+      "borrowerName": "Trần Xuân Huấn",
+      "room": "Phòng 1 - CS155",
+      "purpose": "Thực hành",
+      "borrowDate": "2026-08-16",
+      "expectedReturnDate": "2026-08-18",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-003",
+          "name": "Bộ đèn đa phổ",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "createdAt": "2026-08-15T22:56:25.575Z",
+      "updatedAt": "2026-08-15T22:56:50.545Z",
+      "managerDecision": "approve",
+      "managerNote": "",
+      "managerDecidedAt": "2026-08-15T22:56:29.765Z",
+      "handoff": {
+        "recipientId": "huan",
+        "recipientName": "Trần Xuân Huấn",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-16",
+        "time": "10:45",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-003",
+            "name": "Bộ đèn đa phổ",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T22:56:32.352Z"
+      },
+      "returnRequest": {
+        "returnedBy": "huan",
+        "returnedByName": "Trần Xuân Huấn",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-16",
+        "time": "05:56",
+        "note": "Bị lỗi",
+        "equipment": [
+          {
+            "assetId": "A-STT-003",
+            "name": "Bộ đèn đa phổ",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-15T22:56:40.027Z"
+      },
+      "returnConfirmation": {
+        "note": "Đúng",
+        "managerNote": "Đúng",
+        "generalNote": "Sẽ sửa",
+        "equipment": [
+          {
+            "assetId": "A-STT-003",
+            "name": "Bộ đèn đa phổ",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T22:56:50.545Z"
+      }
+    },
+    {
+      "id": "PM-2026-0052",
+      "sequence": 52,
+      "borrowerId": "huan",
+      "borrowerKey": "huan",
+      "borrowerName": "Trần Xuân Huấn",
+      "room": "Phòng 3 - CS155",
+      "purpose": "TH",
+      "borrowDate": "2026-08-16",
+      "expectedReturnDate": "2026-08-18",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-005",
+          "name": "Kính lúp",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "createdAt": "2026-08-15T20:43:41.458Z",
+      "updatedAt": "2026-08-15T20:55:13.896Z",
+      "managerDecision": "approve",
+      "managerNote": "",
+      "managerDecidedAt": "2026-08-15T20:43:45.987Z",
+      "handoff": {
+        "recipientId": "huan",
+        "recipientName": "Trần Xuân Huấn",
+        "room": "Phòng 3 - CS155",
+        "date": "2026-08-16",
+        "time": "10:45",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-005",
+            "name": "Kính lúp",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T20:44:12.953Z"
+      },
+      "returnRequest": {
+        "returnedBy": "huan",
+        "returnedByName": "Trần Xuân Huấn",
+        "room": "Phòng 3 - CS155",
+        "date": "2026-08-16",
+        "time": "03:44",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-005",
+            "name": "Kính lúp",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-15T20:44:21.559Z"
+      },
+      "returnConfirmation": {
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-005",
+            "name": "Kính lúp",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T20:55:13.896Z"
+      }
+    },
+    {
+      "id": "PM-2026-0051",
+      "sequence": 51,
+      "borrowerId": "cong",
+      "borrowerKey": "cong",
+      "borrowerName": "Lê Văn Công",
+      "room": "Phòng 2 - CS200",
+      "purpose": "Thực hàh",
+      "borrowDate": "2026-08-15",
+      "expectedReturnDate": "2026-08-17",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-006",
+          "name": "Kính hiển vi soi nổi kết nối camera",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "createdAt": "2026-08-15T15:51:03.645Z",
+      "updatedAt": "2026-08-15T15:53:04.656Z",
+      "managerDecision": "approve",
+      "managerNote": "Nhận 8h anh nhé",
+      "managerDecidedAt": "2026-08-15T15:51:23.498Z",
+      "handoff": {
+        "recipientId": "cong",
+        "recipientName": "Lê Văn Công",
+        "room": "Phòng 2 - CS200",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-006",
+            "name": "Kính hiển vi soi nổi kết nối camera",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T15:51:41.870Z"
+      },
+      "returnRequest": {
+        "returnedBy": "cong",
+        "returnedByName": "Lê Văn Công",
+        "room": "Phòng 2 - CS200",
+        "date": "2026-08-15",
+        "time": "22:52",
+        "note": "Ảo ma lắm",
+        "equipment": [
+          {
+            "assetId": "A-STT-006",
+            "name": "Kính hiển vi soi nổi kết nối camera",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-15T15:52:21.151Z"
+      },
+      "returnConfirmation": {
+        "note": "Sẽ kiểm tra",
+        "equipment": [
+          {
+            "assetId": "A-STT-006",
+            "name": "Kính hiển vi soi nổi kết nối camera",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T15:53:04.656Z"
+      }
+    },
+    {
+      "id": "PM-2026-0050",
+      "sequence": 50,
+      "borrowerId": "cong",
+      "borrowerKey": "cong",
+      "borrowerName": "Lê Văn Công",
+      "room": "Phòng 1 - CS155",
+      "purpose": "Thực hành",
+      "borrowDate": "2026-08-15",
+      "expectedReturnDate": "2026-08-17",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-005",
+          "name": "Kính lúp",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "createdAt": "2026-08-15T15:21:34.705Z",
+      "updatedAt": "2026-08-15T15:50:07.930Z",
+      "managerDecision": "approve",
+      "managerNote": "",
+      "managerDecidedAt": "2026-08-15T15:22:03.505Z",
+      "handoff": {
+        "recipientId": "cong",
+        "recipientName": "Lê Văn Công",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": "Đủ, tốt",
+        "equipment": [
+          {
+            "assetId": "A-STT-005",
+            "name": "Kính lúp",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T15:22:57.207Z"
+      },
+      "returnRequest": {
+        "returnedBy": "cong",
+        "returnedByName": "Lê Văn Công",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "22:23",
+        "note": "Máy chập chờn",
+        "equipment": [
+          {
+            "assetId": "A-STT-005",
+            "name": "Kính lúp",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-15T15:23:31.479Z"
+      },
+      "returnConfirmation": {
+        "note": "Máy chập chờn",
+        "equipment": [
+          {
+            "assetId": "A-STT-005",
+            "name": "Kính lúp",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T15:50:07.930Z"
+      }
+    },
+    {
+      "id": "PM-2026-0049",
+      "sequence": 49,
+      "borrowerId": "huan",
+      "borrowerKey": "huan",
+      "borrowerName": "Trần Xuân Huấn",
+      "room": "Phòng 1 - CS155",
+      "purpose": "Thực hành",
+      "borrowDate": "2026-08-15",
+      "expectedReturnDate": "2026-08-17",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-006",
+          "name": "Kính hiển vi soi nổi kết nối camera",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "createdAt": "2026-08-15T15:16:43.514Z",
+      "updatedAt": "2026-08-15T15:17:34.935Z",
+      "managerDecision": "approve",
+      "managerNote": "Lấy 8h",
+      "managerDecidedAt": "2026-08-15T15:16:54.887Z",
+      "handoff": {
+        "recipientId": "huan",
+        "recipientName": "Trần Xuân Huấn",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": "Oke",
+        "equipment": [
+          {
+            "assetId": "A-STT-006",
+            "name": "Kính hiển vi soi nổi kết nối camera",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": "",
+            "image": {
+              "url": "/uploads/ec2d5df912904b5da2851543b00d972d.png",
+              "filename": "ec2d5df912904b5da2851543b00d972d.png",
+              "contentType": "image/png",
+              "size": 1789996,
+              "originalName": "ChatGPT Image 10_37_58 5 thg 8, 2026.png"
+            },
+            "imageUrl": "/uploads/ec2d5df912904b5da2851543b00d972d.png"
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T15:17:21.134Z"
+      },
+      "returnRequest": {
+        "returnedBy": "huan",
+        "returnedByName": "Trần Xuân Huấn",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "22:17",
+        "note": "Tốt",
+        "equipment": [
+          {
+            "assetId": "A-STT-006",
+            "name": "Kính hiển vi soi nổi kết nối camera",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-15T15:17:30.293Z"
+      },
+      "returnConfirmation": {
+        "note": "Tốt",
+        "equipment": [
+          {
+            "assetId": "A-STT-006",
+            "name": "Kính hiển vi soi nổi kết nối camera",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T15:17:34.935Z"
+      }
+    },
+    {
+      "id": "PM-2026-0048",
+      "sequence": 48,
+      "borrowerId": "huan",
+      "borrowerKey": "huan",
+      "borrowerName": "Trần Xuân Huấn",
+      "room": "Phòng 3 - CS155",
+      "purpose": "Thực hành",
+      "borrowDate": "2026-08-15",
+      "expectedReturnDate": "2026-08-17",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-021",
+          "name": "Đầu báo hồng ngoại vô tuyến",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        },
+        {
+          "assetId": "A-STT-015",
+          "name": "Đèn UV di động",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        },
+        {
+          "assetId": "A-STT-014",
+          "name": "Đèn chiếu sáng khám nghiệm hiện trường",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        },
+        {
+          "assetId": "A-STT-013",
+          "name": "Thiết bị quét vân tay trực tiếp",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "createdAt": "2026-08-15T01:40:01.279Z",
+      "updatedAt": "2026-08-15T01:40:44.043Z",
+      "managerDecision": "approve",
+      "managerNote": "Lấy lúc 7h tại phòng 155",
+      "managerDecidedAt": "2026-08-15T01:40:08.078Z",
+      "handoff": {
+        "recipientId": "huan",
+        "recipientName": "Trần Xuân Huấn",
+        "room": "Phòng 3 - CS155",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-021",
+            "name": "Đầu báo hồng ngoại vô tuyến",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-015",
+            "name": "Đèn UV di động",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-014",
+            "name": "Đèn chiếu sáng khám nghiệm hiện trường",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-013",
+            "name": "Thiết bị quét vân tay trực tiếp",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T01:40:17.781Z"
+      },
+      "returnRequest": {
+        "returnedBy": "huan",
+        "returnedByName": "Trần Xuân Huấn",
+        "room": "Phòng 3 - CS155",
+        "date": "2026-08-15",
+        "time": "08:40",
+        "note": "Sử dụng ổn",
+        "equipment": [
+          {
+            "assetId": "A-STT-021",
+            "name": "Đầu báo hồng ngoại vô tuyến",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-015",
+            "name": "Đèn UV di động",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-014",
+            "name": "Đèn chiếu sáng khám nghiệm hiện trường",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-013",
+            "name": "Thiết bị quét vân tay trực tiếp",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-15T01:40:38.708Z"
+      },
+      "returnConfirmation": {
+        "note": "Sử dụng ổn",
+        "equipment": [
+          {
+            "assetId": "A-STT-021",
+            "name": "Đầu báo hồng ngoại vô tuyến",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-015",
+            "name": "Đèn UV di động",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-014",
+            "name": "Đèn chiếu sáng khám nghiệm hiện trường",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-013",
+            "name": "Thiết bị quét vân tay trực tiếp",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T01:40:44.043Z"
+      }
+    },
+    {
+      "id": "PM-2026-0047",
+      "sequence": 47,
+      "borrowerId": "huan",
+      "borrowerKey": "huan",
+      "borrowerName": "Trần Xuân Huấn",
+      "room": "Phòng 1 - CS155",
+      "purpose": "Thực hành",
+      "borrowDate": "2026-08-15",
+      "expectedReturnDate": "2026-08-17",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-009",
+          "name": "Đồng hồ đo điện vạn năng",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "createdAt": "2026-08-15T01:25:43.177Z",
+      "updatedAt": "2026-08-15T01:40:50.002Z",
+      "managerDecision": "approve",
+      "managerNote": "Lấy lúc 7h tại phòng 155",
+      "managerDecidedAt": "2026-08-15T01:26:43.941Z",
+      "handoff": {
+        "recipientId": "huan",
+        "recipientName": "Trần Xuân Huấn",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-009",
+            "name": "Đồng hồ đo điện vạn năng",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T01:33:49.917Z"
+      },
+      "returnRequest": {
+        "returnedBy": "huan",
+        "returnedByName": "Trần Xuân Huấn",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "08:35",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-009",
+            "name": "Đồng hồ đo điện vạn năng",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-15T01:35:37.668Z"
+      },
+      "returnConfirmation": {
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-009",
+            "name": "Đồng hồ đo điện vạn năng",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T01:40:50.002Z"
+      }
+    },
+    {
+      "id": "PM-2026-0046",
+      "sequence": 46,
+      "borrowerId": "huan",
+      "borrowerKey": "huan",
+      "borrowerName": "Trần Xuân Huấn",
+      "room": "Phòng 1 - CS155",
+      "purpose": "Thực hành",
+      "borrowDate": "2026-08-15",
+      "expectedReturnDate": "2026-08-17",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-016",
+          "name": "Thiết bị soi chiếu khe hẹp",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "createdAt": "2026-08-15T01:15:39.112Z",
+      "updatedAt": "2026-08-15T10:16:38.915Z",
+      "managerDecision": "approve",
+      "managerNote": "Lấy lúc 7h tại phòng 155",
+      "managerDecidedAt": "2026-08-15T01:16:35.646Z",
+      "handoff": {
+        "recipientId": "huan",
+        "recipientName": "Trần Xuân Huấn",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-016",
+            "name": "Thiết bị soi chiếu khe hẹp",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T01:34:01.906Z"
+      },
+      "returnRequest": {
+        "returnedBy": "huan",
+        "returnedByName": "Trần Xuân Huấn",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "08:46",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-016",
+            "name": "Thiết bị soi chiếu khe hẹp",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-15T01:46:19.571Z"
+      },
+      "returnConfirmation": {
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-016",
+            "name": "Thiết bị soi chiếu khe hẹp",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T10:16:38.915Z"
+      }
+    },
+    {
+      "id": "PM-2026-0045",
+      "sequence": 45,
+      "borrowerId": "huan",
+      "borrowerKey": "huan",
+      "borrowerName": "Trần Xuân Huấn",
+      "room": "Phòng 1 - CS155",
+      "purpose": "Thực hành",
+      "borrowDate": "2026-08-15",
+      "expectedReturnDate": "2026-08-17",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-015",
+          "name": "Đèn UV di động",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "createdAt": "2026-08-15T00:36:27.828Z",
+      "updatedAt": "2026-08-15T00:39:27.243Z",
+      "requestedLeaderId": "cong",
+      "requestedLeaderKey": "cong",
+      "requestedLeaderName": "Lê Văn Công",
+      "managerRequestNote": "Đưa ra ngoài",
+      "leaderDecision": "approve",
+      "leaderNote": "Đồng ý",
+      "leaderRespondedAt": "2026-08-15T00:37:27.732Z",
+      "managerDecision": "approve",
+      "managerNote": "Đồng ý",
+      "managerDecidedAt": "2026-08-15T00:38:01.931Z",
+      "handoff": {
+        "recipientId": "huan",
+        "recipientName": "Trần Xuân Huấn",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": "7h lấy",
+        "equipment": [
+          {
+            "assetId": "A-STT-015",
+            "name": "Đèn UV di động",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T00:38:40.640Z"
+      },
+      "returnRequest": {
+        "returnedBy": "huan",
+        "returnedByName": "Trần Xuân Huấn",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "07:39",
+        "note": "Tót",
+        "equipment": [
+          {
+            "assetId": "A-STT-015",
+            "name": "Đèn UV di động",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-15T00:39:16.872Z"
+      },
+      "returnConfirmation": {
+        "note": "Tót",
+        "equipment": [
+          {
+            "assetId": "A-STT-015",
+            "name": "Đèn UV di động",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T00:39:27.243Z"
+      }
+    },
+    {
+      "id": "PM-2026-0044",
+      "sequence": 44,
+      "borrowerId": "tot",
+      "borrowerKey": "tot",
+      "borrowerName": "Nguyễn Tốt",
+      "room": "Phòng 1 - CS155",
+      "purpose": "Thực hành",
+      "borrowDate": "2026-08-14",
+      "expectedReturnDate": "2026-08-16",
+      "note": "Chuẩn bị giúp",
+      "equipment": [
+        {
+          "assetId": "A-STT-011",
+          "name": "",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        },
+        {
+          "assetId": "A-STT-005",
+          "name": "",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        },
+        {
+          "assetId": "A-STT-013",
+          "name": "",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "createdAt": "2026-08-14T08:27:50.665Z",
+      "updatedAt": "2026-08-15T22:57:38.162Z",
+      "managerDecision": "approve",
+      "managerNote": "8h lấy",
+      "managerDecidedAt": "2026-08-14T08:28:28.402Z",
+      "handoff": {
+        "recipientId": "tot",
+        "recipientName": "Nguyễn Tốt",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-14",
+        "time": "10:45",
+        "note": "Đã giao đủ nhé",
+        "equipment": [
+          {
+            "assetId": "A-STT-011",
+            "name": "",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-005",
+            "name": "",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-013",
+            "name": "",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-14T08:29:02.100Z"
+      },
+      "returnRequest": {
+        "returnedBy": "tot",
+        "returnedByName": "Nguyễn Tốt",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-16",
+        "time": "05:57",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-011",
+            "name": "Thiết bị đa phổ phát hiện dấu vết đường vân, dấu vết máu, dịch cơ thể, ADN",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-005",
+            "name": "Kính lúp",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-013",
+            "name": "Thiết bị quét vân tay trực tiếp",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-15T22:57:11.777Z"
+      },
+      "returnConfirmation": {
+        "note": "",
+        "managerNote": "",
+        "generalNote": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-011",
+            "name": "Thiết bị đa phổ phát hiện dấu vết đường vân, dấu vết máu, dịch cơ thể, ADN",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-005",
+            "name": "Kính lúp",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-013",
+            "name": "Thiết bị quét vân tay trực tiếp",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T22:57:38.162Z"
+      }
+    },
+    {
+      "id": "PM-2026-0043",
+      "sequence": 43,
+      "borrowerId": "thanh",
+      "borrowerKey": "thanh",
+      "borrowerName": "Đậu Trung Thành",
+      "room": "Phòng 1 - CS155",
+      "purpose": "Thực hành",
+      "borrowDate": "2026-08-14",
+      "expectedReturnDate": "2026-08-16",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-009",
+          "name": "",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "createdAt": "2026-08-14T01:14:10.114Z",
+      "updatedAt": "2026-08-14T01:30:00.295Z",
+      "requestedLeaderId": "cong",
+      "requestedLeaderKey": "cong",
+      "requestedLeaderName": "Lê Văn Công",
+      "managerRequestNote": "Đưa ra ngoài trường",
+      "leaderDecision": "approve",
+      "leaderNote": "Đồng ý",
+      "leaderRespondedAt": "2026-08-14T01:15:25.962Z",
+      "managerDecision": "approve",
+      "managerNote": "Đồng ý",
+      "managerDecidedAt": "2026-08-14T01:15:50.414Z",
+      "handoff": {
+        "recipientId": "thanh",
+        "recipientName": "Đậu Trung Thành",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-14",
+        "time": "10:45",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-009",
+            "name": "",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-14T01:29:23.902Z"
+      },
+      "returnRequest": {
+        "returnedBy": "thanh",
+        "returnedByName": "Đậu Trung Thành",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-14",
+        "time": "08:29",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-009",
+            "name": "",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-14T01:29:50.229Z"
+      },
+      "returnConfirmation": {
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-009",
+            "name": "",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-14T01:30:00.295Z"
+      }
+    },
+    {
+      "id": "PM-2025-0042",
+      "sequence": 42,
+      "borrowerId": "thanh",
+      "borrowerKey": "thanh",
+      "borrowerName": "Đậu Trung Thành",
+      "room": "Phòng 1 - CS155",
+      "purpose": "Thực hành hiện trường vụ án",
+      "borrowDate": "2025-05-14",
+      "expectedReturnDate": "2025-05-16",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-001",
+          "name": "Máy ảnh kỹ thuật số",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        },
+        {
+          "assetId": "A-STT-004",
+          "name": "Đèn tử ngoại",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "createdAt": "2025-05-14T02:15:00.000Z",
+      "updatedAt": "2026-08-16T08:05:52.089Z",
+      "managerDecision": "approve",
+      "managerNote": "",
+      "managerDecidedAt": "2026-08-14T01:28:38.948Z",
+      "handoff": {
+        "recipientId": "thanh",
+        "recipientName": "Đậu Trung Thành",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-001",
+            "name": "Máy ảnh kỹ thuật số (kèm ống kính tele và macro)",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-004",
+            "name": "Đèn tử ngoại",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T01:43:43.922Z"
+      },
+      "returnRequest": {
+        "returnedBy": "thanh",
+        "returnedByName": "Đậu Trung Thành",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-16",
+        "time": "06:21",
+        "note": "Hư",
+        "equipment": [
+          {
+            "assetId": "A-STT-001",
+            "name": "Máy ảnh kỹ thuật số (kèm ống kính tele và macro)",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-004",
+            "name": "Đèn tử ngoại",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-15T23:21:38.142Z"
+      },
+      "returnConfirmation": {
+        "note": "Đúng",
+        "managerNote": "Đúng",
+        "generalNote": "Sửa",
+        "equipment": [
+          {
+            "assetId": "A-STT-001",
+            "name": "Máy ảnh kỹ thuật số (kèm ống kính tele và macro)",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          },
+          {
+            "assetId": "A-STT-004",
+            "name": "Đèn tử ngoại",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-16T08:05:52.089Z"
+      }
+    },
+    {
+      "id": "PM-2025-0041",
+      "sequence": 41,
+      "borrowerId": "tot",
+      "borrowerKey": "tot",
+      "borrowerName": "Nguyễn Tốt",
+      "room": "Phòng 2 - CS200",
+      "purpose": "Phân tích và đối chiếu vân tay",
+      "borrowDate": "2025-05-13",
+      "expectedReturnDate": "2025-05-15",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-002",
+          "name": "Camera kỹ thuật số",
+          "quantity": 1,
+          "condition": "",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "managerDecision": "approve",
+      "managerNote": "Đủ điều kiện cho mượn.",
+      "managerDecidedAt": "2025-05-13T02:00:00.000Z",
+      "createdAt": "2025-05-13T01:30:00.000Z",
+      "updatedAt": "2026-08-16T08:05:58.032Z",
+      "handoff": {
+        "recipientId": "tot",
+        "recipientName": "Nguyễn Tốt",
+        "room": "Phòng 2 - CS200",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-002",
+            "name": "Camera kỹ thuật số",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-15T10:16:29.620Z"
+      },
+      "returnRequest": {
+        "returnedBy": "tot",
+        "returnedByName": "Nguyễn Tốt",
+        "room": "Phòng 2 - CS200",
+        "date": "2026-08-16",
+        "time": "06:22",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-002",
+            "name": "Camera kỹ thuật số",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-15T23:22:38.155Z"
+      },
+      "returnConfirmation": {
+        "note": "",
+        "managerNote": "",
+        "generalNote": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-002",
+            "name": "Camera kỹ thuật số",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-16T08:05:58.032Z"
+      }
+    },
+    {
+      "id": "PM-2025-0040",
+      "sequence": 40,
+      "borrowerId": "quan",
+      "borrowerKey": "quan",
+      "borrowerName": "Phạm Minh Quân",
+      "room": "Phòng 3 - CS155",
+      "purpose": "Giám định tài liệu",
+      "borrowDate": "2025-05-12",
+      "expectedReturnDate": "2025-05-14",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-003",
+          "name": "Bộ đèn đa phổ",
+          "quantity": 1,
+          "condition": "Tốt",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "managerDecision": "approve",
+      "managerNote": "",
+      "managerDecidedAt": "2025-05-12T01:10:00.000Z",
+      "handoff": {
+        "recipientId": "quan",
+        "recipientName": "Phạm Minh Quân",
+        "room": "Phòng 3 - CS155",
+        "date": "2025-05-12",
+        "time": "09:00",
+        "note": "Đã kiểm tra phương tiện khi giao.",
+        "equipment": [
+          {
+            "assetId": "A-STT-003",
+            "name": "Bộ đèn đa phổ",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2025-05-12T02:00:00.000Z"
+      },
+      "createdAt": "2025-05-12T00:30:00.000Z",
+      "updatedAt": "2026-08-16T08:06:01.328Z",
+      "returnRequest": {
+        "returnedBy": "quan",
+        "returnedByName": "Phạm Minh Quân",
+        "room": "Phòng 3 - CS155",
+        "date": "2026-08-16",
+        "time": "06:22",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-003",
+            "name": "Bộ đèn đa phổ",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-15T23:22:47.196Z"
+      },
+      "returnConfirmation": {
+        "note": "",
+        "managerNote": "",
+        "generalNote": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-003",
+            "name": "Bộ đèn đa phổ",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-16T08:06:01.328Z"
+      }
+    },
+    {
+      "id": "PM-2025-0039",
+      "sequence": 39,
+      "borrowerId": "be",
+      "borrowerKey": "be",
+      "borrowerName": "Nguyễn Văn Bé",
+      "room": "Phòng 1 - CS155",
+      "purpose": "Thực hành kỹ thuật hình sự số",
+      "borrowDate": "2025-05-10",
+      "expectedReturnDate": "2025-05-12",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-002",
+          "name": "Camera kỹ thuật số",
+          "quantity": 1,
+          "condition": "Tốt",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "managerDecision": "approve",
+      "managerNote": "",
+      "managerDecidedAt": "2025-05-10T02:00:00.000Z",
+      "handoff": {
+        "recipientId": "be",
+        "recipientName": "Nguyễn Văn Bé",
+        "room": "Phòng 1 - CS155",
+        "date": "2025-05-10",
+        "time": "10:00",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-002",
+            "name": "Camera kỹ thuật số",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2025-05-10T03:00:00.000Z"
+      },
+      "createdAt": "2025-05-10T01:00:00.000Z",
+      "updatedAt": "2026-08-16T08:06:04.401Z",
+      "returnRequest": {
+        "returnedBy": "be",
+        "returnedByName": "Nguyễn Văn Bé",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-16",
+        "time": "06:23",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-002",
+            "name": "Camera kỹ thuật số",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2026-08-15T23:23:15.468Z"
+      },
+      "returnConfirmation": {
+        "note": "",
+        "managerNote": "",
+        "generalNote": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-002",
+            "name": "Camera kỹ thuật số",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2026-08-16T08:06:04.401Z"
+      }
+    },
+    {
+      "id": "PM-2025-0038",
+      "sequence": 38,
+      "borrowerId": "tot",
+      "borrowerKey": "tot",
+      "borrowerName": "Nguyễn Tốt",
+      "room": "Phòng 2 - CS200",
+      "purpose": "Nghiên cứu mẫu sinh học",
+      "borrowDate": "2025-05-08",
+      "expectedReturnDate": "2025-05-10",
+      "note": "",
+      "equipment": [
+        {
+          "assetId": "A-STT-001",
+          "name": "Máy ảnh kỹ thuật số",
+          "quantity": 1,
+          "condition": "Tốt",
+          "note": ""
+        }
+      ],
+      "status": "returned",
+      "managerDecision": "approve",
+      "managerNote": "",
+      "managerDecidedAt": "2025-05-08T01:30:00.000Z",
+      "handoff": {
+        "recipientId": "tot",
+        "recipientName": "Nguyễn Tốt",
+        "room": "Phòng 2 - CS200",
+        "date": "2025-05-08",
+        "time": "09:00",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-001",
+            "name": "Máy ảnh kỹ thuật số",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2025-05-08T02:00:00.000Z"
+      },
+      "returnRequest": {
+        "returnedBy": "tot",
+        "returnedByName": "Nguyễn Tốt",
+        "room": "Phòng 2 - CS200",
+        "date": "2025-05-10",
+        "time": "16:20",
+        "note": "",
+        "equipment": [
+          {
+            "assetId": "A-STT-001",
+            "name": "Máy ảnh kỹ thuật số",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "requestedAt": "2025-05-10T09:20:00.000Z"
+      },
+      "returnConfirmation": {
+        "note": "Đã nhận đủ và kiểm tra phương tiện.",
+        "equipment": [
+          {
+            "assetId": "A-STT-001",
+            "name": "Máy ảnh kỹ thuật số",
+            "quantity": 1,
+            "condition": "Tốt",
+            "note": ""
+          }
+        ],
+        "confirmedBy": "huan",
+        "confirmedAt": "2025-05-10T09:30:00.000Z"
+      },
+      "createdAt": "2025-05-08T01:00:00.000Z",
+      "updatedAt": "2025-05-10T09:30:00.000Z"
+    }
+  ],
+  "events": [
+    {
+      "id": "EVT-000001",
+      "commandId": "SEED-PM-2025-0038-SUBMIT",
+      "loanId": "PM-2025-0038",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "tot",
+      "actorKey": "tot",
+      "actorName": "Nguyễn Tốt",
+      "actorRole": "teacher",
+      "at": "2025-05-08T01:00:00.000Z",
+      "details": {
+        "borrowerId": "tot",
+        "room": "Phòng 2 - CS200",
+        "purpose": "Nghiên cứu mẫu sinh học"
+      }
+    },
+    {
+      "id": "EVT-000002",
+      "commandId": "SEED-PM-2025-0038-DECIDE",
+      "loanId": "PM-2025-0038",
+      "type": "manager_decide",
+      "fromStatus": "pending_manager",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2025-05-08T01:30:00.000Z",
+      "details": {
+        "decision": "approve",
+        "note": "",
+        "leaderDecision": null
+      }
+    },
+    {
+      "id": "EVT-000003",
+      "commandId": "SEED-PM-2025-0038-HANDOFF",
+      "loanId": "PM-2025-0038",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2025-05-08T02:00:00.000Z",
+      "details": {
+        "recipientId": "tot",
+        "room": "Phòng 2 - CS200",
+        "date": "2025-05-08",
+        "time": "09:00",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000004",
+      "commandId": "SEED-PM-2025-0039-SUBMIT",
+      "loanId": "PM-2025-0039",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "be",
+      "actorKey": "be",
+      "actorName": "Nguyễn Văn Bé",
+      "actorRole": "teacher",
+      "at": "2025-05-10T01:00:00.000Z",
+      "details": {
+        "borrowerId": "be",
+        "room": "Phòng 1 - CS155",
+        "purpose": "Thực hành kỹ thuật hình sự số"
+      }
+    },
+    {
+      "id": "EVT-000005",
+      "commandId": "SEED-PM-2025-0039-DECIDE",
+      "loanId": "PM-2025-0039",
+      "type": "manager_decide",
+      "fromStatus": "pending_manager",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2025-05-10T02:00:00.000Z",
+      "details": {
+        "decision": "approve",
+        "note": "",
+        "leaderDecision": null
+      }
+    },
+    {
+      "id": "EVT-000006",
+      "commandId": "SEED-PM-2025-0039-HANDOFF",
+      "loanId": "PM-2025-0039",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2025-05-10T03:00:00.000Z",
+      "details": {
+        "recipientId": "be",
+        "room": "Phòng 1 - CS155",
+        "date": "2025-05-10",
+        "time": "10:00",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000007",
+      "commandId": "SEED-PM-2025-0038-RETURN",
+      "loanId": "PM-2025-0038",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "tot",
+      "actorKey": "tot",
+      "actorName": "Nguyễn Tốt",
+      "actorRole": "teacher",
+      "at": "2025-05-10T09:20:00.000Z",
+      "details": {
+        "returnedBy": "tot",
+        "room": "Phòng 2 - CS200",
+        "date": "2025-05-10",
+        "time": "16:20",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000008",
+      "commandId": "SEED-PM-2025-0038-CONFIRM",
+      "loanId": "PM-2025-0038",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2025-05-10T09:30:00.000Z",
+      "details": {
+        "note": "Đã nhận đủ và kiểm tra phương tiện."
+      }
+    },
+    {
+      "id": "EVT-000009",
+      "commandId": "SEED-PM-2025-0040-SUBMIT",
+      "loanId": "PM-2025-0040",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "quan",
+      "actorKey": "quan",
+      "actorName": "Phạm Minh Quân",
+      "actorRole": "teacher",
+      "at": "2025-05-12T00:30:00.000Z",
+      "details": {
+        "borrowerId": "quan",
+        "room": "Phòng 3 - CS155",
+        "purpose": "Giám định tài liệu"
+      }
+    },
+    {
+      "id": "EVT-000010",
+      "commandId": "SEED-PM-2025-0040-DECIDE",
+      "loanId": "PM-2025-0040",
+      "type": "manager_decide",
+      "fromStatus": "pending_manager",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2025-05-12T01:10:00.000Z",
+      "details": {
+        "decision": "approve",
+        "note": "",
+        "leaderDecision": null
+      }
+    },
+    {
+      "id": "EVT-000011",
+      "commandId": "SEED-PM-2025-0040-HANDOFF",
+      "loanId": "PM-2025-0040",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2025-05-12T02:00:00.000Z",
+      "details": {
+        "recipientId": "quan",
+        "room": "Phòng 3 - CS155",
+        "date": "2025-05-12",
+        "time": "09:00",
+        "note": "Đã kiểm tra phương tiện khi giao."
+      }
+    },
+    {
+      "id": "EVT-000012",
+      "commandId": "SEED-PM-2025-0041-SUBMIT",
+      "loanId": "PM-2025-0041",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "tot",
+      "actorKey": "tot",
+      "actorName": "Nguyễn Tốt",
+      "actorRole": "teacher",
+      "at": "2025-05-13T01:30:00.000Z",
+      "details": {
+        "borrowerId": "tot",
+        "room": "Phòng 2 - CS200",
+        "purpose": "Phân tích và đối chiếu vân tay"
+      }
+    },
+    {
+      "id": "EVT-000013",
+      "commandId": "SEED-PM-2025-0041-DECIDE",
+      "loanId": "PM-2025-0041",
+      "type": "manager_decide",
+      "fromStatus": "pending_manager",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2025-05-13T02:00:00.000Z",
+      "details": {
+        "decision": "approve",
+        "note": "Đủ điều kiện cho mượn.",
+        "leaderDecision": null
+      }
+    },
+    {
+      "id": "EVT-000014",
+      "commandId": "SEED-PM-2025-0042-SUBMIT",
+      "loanId": "PM-2025-0042",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "thanh",
+      "actorKey": "thanh",
+      "actorName": "Đậu Trung Thành",
+      "actorRole": "teacher",
+      "at": "2025-05-14T02:15:00.000Z",
+      "details": {
+        "borrowerId": "thanh",
+        "room": "Phòng 1 - CS155",
+        "purpose": "Thực hành hiện trường vụ án"
+      }
+    },
+    {
+      "id": "EVT-000015",
+      "commandId": "3c434f04-5a7c-4fa9-9fac-63f3cfd9d54e",
+      "commandHash": "b4307e67ae0bb7f0f7dc03166475d176e4da9eb4bd3b108ed0570a58ea38f7c7",
+      "loanId": "PM-2026-0043",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "thanh",
+      "actorKey": "thanh",
+      "actorName": "Đậu Trung Thành",
+      "actorRole": "teacher",
+      "at": "2026-08-14T01:14:10.114Z",
+      "details": {
+        "borrowerId": "thanh",
+        "room": "Phòng 1 - CS155",
+        "purpose": "Thực hành"
+      }
+    },
+    {
+      "id": "EVT-000016",
+      "commandId": "6754149d-be57-4810-849d-1e7c6defb154",
+      "commandHash": "9b522b2b4c2d2f03611e86605e55f0d9a7873f2f61bcd4b2e714d899d7837b19",
+      "loanId": "PM-2026-0043",
+      "type": "request_leader",
+      "fromStatus": "pending_manager",
+      "toStatus": "pending_leader",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-14T01:14:50.344Z",
+      "details": {
+        "leaderId": "cong",
+        "leaderName": "Lê Văn Công",
+        "note": "Đưa ra ngoài trường"
+      }
+    },
+    {
+      "id": "EVT-000017",
+      "commandId": "73c4ee33-08a1-49fa-866b-62372e77122a",
+      "commandHash": "a6f58c6c881bec8f5da0df5d98c891fb60975691e03f7afb130f44794617165b",
+      "loanId": "PM-2026-0043",
+      "type": "leader_opinion",
+      "fromStatus": "pending_leader",
+      "toStatus": "leader_opinion_returned",
+      "actorId": "cong",
+      "actorKey": "cong",
+      "actorName": "Lê Văn Công",
+      "actorRole": "approver",
+      "at": "2026-08-14T01:15:25.962Z",
+      "details": {
+        "decision": "approve",
+        "note": "Đồng ý"
+      }
+    },
+    {
+      "id": "EVT-000018",
+      "commandId": "b2592ec5-6a57-4a08-8508-e43444cfd8e2",
+      "commandHash": "a86bac451f150111b518bde37030fa7fa19ced08d920cde1e20a64d0ac90cb66",
+      "loanId": "PM-2026-0043",
+      "type": "manager_decide",
+      "fromStatus": "leader_opinion_returned",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-14T01:15:50.414Z",
+      "details": {
+        "decision": "approve",
+        "note": "Đồng ý",
+        "leaderDecision": "approve"
+      }
+    },
+    {
+      "id": "EVT-000019",
+      "commandId": "9c4bcdb6-7fcb-4393-8abe-985948af1163",
+      "commandHash": "3bc719dcc205318eeacc558e9a7e252bba7edc9b5a75bcdffd869d19b23df7d2",
+      "loanId": "PM-2025-0042",
+      "type": "manager_decide",
+      "fromStatus": "pending_manager",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-14T01:28:38.948Z",
+      "details": {
+        "decision": "approve",
+        "note": "",
+        "leaderDecision": null
+      }
+    },
+    {
+      "id": "EVT-000020",
+      "commandId": "dd510993-a2a5-4da7-9c76-d9e058bec3a0",
+      "commandHash": "33ec0be245de18f1dee9337ee9b4029da237d7d93dea40b817117b2a139fd42f",
+      "loanId": "PM-2026-0043",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-14T01:29:23.902Z",
+      "details": {
+        "recipientId": "thanh",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-14",
+        "time": "10:45",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000021",
+      "commandId": "26453ada-60f0-46ce-a9bb-f877d6547e83",
+      "commandHash": "5a08899a36cdc5fad4d64fe323cac47bd90b06b9cf204487861b7ab280ec2455",
+      "loanId": "PM-2026-0043",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "thanh",
+      "actorKey": "thanh",
+      "actorName": "Đậu Trung Thành",
+      "actorRole": "teacher",
+      "at": "2026-08-14T01:29:50.229Z",
+      "details": {
+        "returnedBy": "thanh",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-14",
+        "time": "08:29",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000022",
+      "commandId": "ce8547c4-4704-45c3-b009-19a0726fcfce",
+      "commandHash": "aabbfd94e50d9ffe9aa88eae4cd707cff44451df4c7f34ee92ae7b4d001ea148",
+      "loanId": "PM-2026-0043",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-14T01:30:00.295Z",
+      "details": {
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000023",
+      "commandId": "64835bd0-ec20-4df4-8d59-bf808f7e438a",
+      "commandHash": "e3715232c189783ffacb82135628073961211638b5a80aa6d30e041a8fc98146",
+      "loanId": "PM-2026-0044",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "tot",
+      "actorKey": "tot",
+      "actorName": "Nguyễn Tốt",
+      "actorRole": "teacher",
+      "at": "2026-08-14T08:27:50.665Z",
+      "details": {
+        "borrowerId": "tot",
+        "room": "Phòng 1 - CS155",
+        "purpose": "Thực hành"
+      }
+    },
+    {
+      "id": "EVT-000024",
+      "commandId": "210d741d-6b77-440d-8ff2-1ab4c9fef2ea",
+      "commandHash": "fa7cf9fcd1cf1085ed81ca9265b131f8abedd3a6d0d1ccbfbc185f86d035042f",
+      "loanId": "PM-2026-0044",
+      "type": "manager_decide",
+      "fromStatus": "pending_manager",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-14T08:28:28.402Z",
+      "details": {
+        "decision": "approve",
+        "note": "8h lấy",
+        "leaderDecision": null
+      }
+    },
+    {
+      "id": "EVT-000025",
+      "commandId": "db383706-ffe7-4e94-bb79-075060a6c2e8",
+      "commandHash": "bc6121d6ba3b1101850293f8c40039356b33589b16224a400871bb9166b44307",
+      "loanId": "PM-2026-0044",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-14T08:29:02.100Z",
+      "details": {
+        "recipientId": "tot",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-14",
+        "time": "10:45",
+        "note": "Đã giao đủ nhé"
+      }
+    },
+    {
+      "id": "EVT-000026",
+      "commandId": "00c082fb-b33b-4887-9dc1-8a9e1964962d",
+      "commandHash": "1c57b7893ca49945d97e720208bd87ca998d65113561fddbb55ee87798075320",
+      "loanId": "PM-2026-0045",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T00:36:27.828Z",
+      "details": {
+        "borrowerId": "huan",
+        "room": "Phòng 1 - CS155",
+        "purpose": "Thực hành"
+      }
+    },
+    {
+      "id": "EVT-000027",
+      "commandId": "c48e8219-a434-438f-a93b-22b24a32af45",
+      "commandHash": "ac9accc3bbece181fc0c648712cbd31b5286e9e26732e85d11c5019989f0e5a8",
+      "loanId": "PM-2026-0045",
+      "type": "request_leader",
+      "fromStatus": "pending_manager",
+      "toStatus": "pending_leader",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T00:37:09.192Z",
+      "details": {
+        "leaderId": "cong",
+        "leaderName": "Lê Văn Công",
+        "note": "Đưa ra ngoài"
+      }
+    },
+    {
+      "id": "EVT-000028",
+      "commandId": "279fd54f-7e3a-4509-a52b-c68df9cfe04b",
+      "commandHash": "2bfee8f673920c4198c851e9ed87f281088bbc4d4b1feec4a4e09ea550fc852d",
+      "loanId": "PM-2026-0045",
+      "type": "leader_opinion",
+      "fromStatus": "pending_leader",
+      "toStatus": "leader_opinion_returned",
+      "actorId": "cong",
+      "actorKey": "cong",
+      "actorName": "Lê Văn Công",
+      "actorRole": "approver",
+      "at": "2026-08-15T00:37:27.732Z",
+      "details": {
+        "decision": "approve",
+        "note": "Đồng ý"
+      }
+    },
+    {
+      "id": "EVT-000029",
+      "commandId": "a10579e1-09a5-4dd9-b7bf-25ade8bb6e6c",
+      "commandHash": "bc9f248d0485ae015b0467e97efbf1507821e2867a904e1d522f5cbcd3015717",
+      "loanId": "PM-2026-0045",
+      "type": "manager_decide",
+      "fromStatus": "leader_opinion_returned",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T00:38:01.931Z",
+      "details": {
+        "decision": "approve",
+        "note": "Đồng ý",
+        "leaderDecision": "approve"
+      }
+    },
+    {
+      "id": "EVT-000030",
+      "commandId": "48b359f7-2426-40b4-af1f-8eecff747471",
+      "commandHash": "53ea410313248d84e62bc32f2610531ca24465b22fe807f0d84083c3afa4738a",
+      "loanId": "PM-2026-0045",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T00:38:40.640Z",
+      "details": {
+        "recipientId": "huan",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": "7h lấy"
+      }
+    },
+    {
+      "id": "EVT-000031",
+      "commandId": "94e8c258-90ac-4d23-a266-3bc559a77855",
+      "commandHash": "df9aafb99f9f99f6e95f810f5e1ec25488f853d0906de14aa4365cc0a2f19706",
+      "loanId": "PM-2026-0045",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T00:39:16.872Z",
+      "details": {
+        "returnedBy": "huan",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "07:39",
+        "note": "Tót"
+      }
+    },
+    {
+      "id": "EVT-000032",
+      "commandId": "89f07d40-333d-4183-a650-10dc72fed94a",
+      "commandHash": "e60621958a3bca468ace10a3b8911e23d2adeb5fd67ecef6d8b64dd50b29ebfa",
+      "loanId": "PM-2026-0045",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T00:39:27.243Z",
+      "details": {
+        "note": "Tót"
+      }
+    },
+    {
+      "id": "EVT-000033",
+      "commandId": "1d460b13-6e05-4fc9-b634-b5bf58723060",
+      "commandHash": "40dcc389ca6d4a3f81ed6ac2a4fd2c950e452701ad3d462351664e149e417acf",
+      "loanId": "PM-2026-0046",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T01:15:39.112Z",
+      "details": {
+        "borrowerId": "huan",
+        "room": "Phòng 1 - CS155",
+        "purpose": "Thực hành"
+      }
+    },
+    {
+      "id": "EVT-000034",
+      "commandId": "faf596b1-3c37-43d1-8a1d-388a5eb0f550",
+      "commandHash": "2ace8202bbb4250ec52ca95c16d45465ba446433bcd3ad8baa53de34956ca94e",
+      "loanId": "PM-2026-0046",
+      "type": "manager_decide",
+      "fromStatus": "pending_manager",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T01:16:35.646Z",
+      "details": {
+        "decision": "approve",
+        "note": "Lấy lúc 7h tại phòng 155",
+        "leaderDecision": null
+      }
+    },
+    {
+      "id": "EVT-000035",
+      "commandId": "8a09498b-7861-4caf-9b72-8cf9dbfa62ba",
+      "commandHash": "909d02bf534b2e4503e07b2ffe4d2f8b69adfd372cabbf68917d50a387202af8",
+      "loanId": "PM-2026-0047",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T01:25:43.177Z",
+      "details": {
+        "borrowerId": "huan",
+        "room": "Phòng 1 - CS155",
+        "purpose": "Thực hành"
+      }
+    },
+    {
+      "id": "EVT-000036",
+      "commandId": "edfc6d27-9270-43d9-95f2-61bc98914931",
+      "commandHash": "a1956069e362596ce705abdb425f448cc765080d542a031147ad81d6e38de84f",
+      "loanId": "PM-2026-0047",
+      "type": "manager_decide",
+      "fromStatus": "pending_manager",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T01:26:43.941Z",
+      "details": {
+        "decision": "approve",
+        "note": "Lấy lúc 7h tại phòng 155",
+        "leaderDecision": null
+      }
+    },
+    {
+      "id": "EVT-000037",
+      "commandId": "53ba582c-8c48-4c63-97c5-5f517043db63",
+      "commandHash": "86d031f6c84ea2cc04f75c37f21a14ace7fa9ed209eae4c479a1ae7d56527b3c",
+      "loanId": "PM-2026-0047",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T01:33:49.917Z",
+      "details": {
+        "recipientId": "huan",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000038",
+      "commandId": "22117c6f-bd7a-4a19-87f6-8757d723187b",
+      "commandHash": "b56ab765cd498a261b6a3059cdbce9678ecca72a8c15afe8aa8329bc9252c8a3",
+      "loanId": "PM-2026-0046",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T01:34:01.906Z",
+      "details": {
+        "recipientId": "huan",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000039",
+      "commandId": "072c0ae1-366e-4944-a68f-7f5bee59b200",
+      "commandHash": "f5c11e8a997f32dbfc1d9c1dd5d303e02cbb5431e53047e1dab2e85ea8d90450",
+      "loanId": "PM-2026-0047",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T01:35:37.668Z",
+      "details": {
+        "returnedBy": "huan",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "08:35",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000040",
+      "commandId": "f84496ba-d73b-465a-8050-b757094f4eea",
+      "commandHash": "6f359754adc80af4892cafb9d9c390bb2799a0df851d2ad8f8081915e866914e",
+      "loanId": "PM-2026-0048",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T01:40:01.279Z",
+      "details": {
+        "borrowerId": "huan",
+        "room": "Phòng 3 - CS155",
+        "purpose": "Thực hành"
+      }
+    },
+    {
+      "id": "EVT-000041",
+      "commandId": "3e022169-e2d9-4011-9601-c604653de4f5",
+      "commandHash": "900582906fc3102cd37ccdc95286b3ba960e79efe5949ca3a2c23378e82f9710",
+      "loanId": "PM-2026-0048",
+      "type": "manager_decide",
+      "fromStatus": "pending_manager",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T01:40:08.078Z",
+      "details": {
+        "decision": "approve",
+        "note": "Lấy lúc 7h tại phòng 155",
+        "leaderDecision": null
+      }
+    },
+    {
+      "id": "EVT-000042",
+      "commandId": "720a4e81-0b0e-4c56-9d22-1aedd46ca6ad",
+      "commandHash": "59f69278f84d4cdbde7375ccc0302e840f43582025ede24f59367d693384899f",
+      "loanId": "PM-2026-0048",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T01:40:17.781Z",
+      "details": {
+        "recipientId": "huan",
+        "room": "Phòng 3 - CS155",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000043",
+      "commandId": "fec2b158-5898-4a81-88a1-f99bdd22dd0e",
+      "commandHash": "7771cdf22ccdf067ddfec59d948f2a7f7a20dae47967cf821c791a4b7e0b1eb1",
+      "loanId": "PM-2026-0048",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T01:40:38.708Z",
+      "details": {
+        "returnedBy": "huan",
+        "room": "Phòng 3 - CS155",
+        "date": "2026-08-15",
+        "time": "08:40",
+        "note": "Sử dụng ổn"
+      }
+    },
+    {
+      "id": "EVT-000044",
+      "commandId": "1b15b03f-33e4-493b-97f6-54221a2a415e",
+      "commandHash": "5901869e2ba59783875567526c61cede0aaebd784a8f56f984a135165197d763",
+      "loanId": "PM-2026-0048",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T01:40:44.043Z",
+      "details": {
+        "note": "Sử dụng ổn"
+      }
+    },
+    {
+      "id": "EVT-000045",
+      "commandId": "3a240241-8c7d-48b1-ac14-625dc30c9eb8",
+      "commandHash": "3597521826f5b3831654dd28edebca182eba899cf1a38178044cace5956891c5",
+      "loanId": "PM-2026-0047",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T01:40:50.002Z",
+      "details": {
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000046",
+      "commandId": "09880bfb-3b89-4de0-b38b-dde367864402",
+      "commandHash": "9f4c821c9842e9bd3caf45f5284015b758dc5aff8045baaf35abcaf5140b3597",
+      "loanId": "PM-2025-0042",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T01:43:43.922Z",
+      "details": {
+        "recipientId": "thanh",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000047",
+      "commandId": "294a94bf-1922-4d3b-8c15-dfdc683e459f",
+      "commandHash": "e1cdea29715c98cf5e262cb8b8fa1116dee8db70d72b72aa5bd771c29105d6db",
+      "loanId": "PM-2026-0046",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T01:46:19.571Z",
+      "details": {
+        "returnedBy": "huan",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "08:46",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000048",
+      "commandId": "a995a929-8e3a-427c-98c5-ca2bcd73ad04",
+      "commandHash": "2270a9d62d420131222d1c9ee82767330b5f340477c04ab73755b9425363ee2c",
+      "loanId": "PM-2025-0041",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T10:16:29.620Z",
+      "details": {
+        "recipientId": "tot",
+        "room": "Phòng 2 - CS200",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000049",
+      "commandId": "4a7b85da-b918-4ebe-adb8-c331f3c9b11b",
+      "commandHash": "9996785f63ac122183451871634056f088d6ed6538fae2dac0434a2a49273e05",
+      "loanId": "PM-2026-0046",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T10:16:38.915Z",
+      "details": {
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000050",
+      "commandId": "933bc490-1d62-496c-ad34-d7d8e4b22259",
+      "commandHash": "b016a409adfd61814dff295e68dfd0dd717994afe73e73a7af4e27235ccf8ad1",
+      "loanId": "PM-2026-0049",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T15:16:43.514Z",
+      "details": {
+        "borrowerId": "huan",
+        "room": "Phòng 1 - CS155",
+        "purpose": "Thực hành"
+      }
+    },
+    {
+      "id": "EVT-000051",
+      "commandId": "6c7a49b5-0c97-4d87-a27c-beea47b18e91",
+      "commandHash": "e668b7c90a29b72c3cf21988f142277bbfb6692c075800653b07b853ffee3c46",
+      "loanId": "PM-2026-0049",
+      "type": "manager_decide",
+      "fromStatus": "pending_manager",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T15:16:54.887Z",
+      "details": {
+        "decision": "approve",
+        "note": "Lấy 8h",
+        "leaderDecision": null
+      }
+    },
+    {
+      "id": "EVT-000052",
+      "commandId": "c5dc653b-1aea-4032-a1e8-315b95ce9d56",
+      "commandHash": "5c658df67202b6a9efc519f28ea96de1d2ae27be2d38cbdaa9e89158c4d2beab",
+      "loanId": "PM-2026-0049",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T15:17:21.134Z",
+      "details": {
+        "recipientId": "huan",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": "Oke"
+      }
+    },
+    {
+      "id": "EVT-000053",
+      "commandId": "68becd61-c26f-45fa-947c-33ca6191ca67",
+      "commandHash": "da5bba424e99a6c58aeca073432ea64ebf5fd8c3dc150f138cdc24e6288b05bb",
+      "loanId": "PM-2026-0049",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T15:17:30.293Z",
+      "details": {
+        "returnedBy": "huan",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "22:17",
+        "note": "Tốt"
+      }
+    },
+    {
+      "id": "EVT-000054",
+      "commandId": "e3bbdbe0-d180-459c-8950-532489b736fa",
+      "commandHash": "d0a98c6bb94fd7864a2bd3b83e850a02c75c492b2ea52922e6fc7f1a9d9bba34",
+      "loanId": "PM-2026-0049",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T15:17:34.935Z",
+      "details": {
+        "note": "Tốt"
+      }
+    },
+    {
+      "id": "EVT-000055",
+      "commandId": "15e55e1a-a436-4e77-b26c-69dd15299582",
+      "commandHash": "5ac3a4b50f377c5a2e705f5303dc42e8e6b807a44e54f6b3dc8592ba6b44182b",
+      "loanId": "PM-2026-0050",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "cong",
+      "actorKey": "cong",
+      "actorName": "Lê Văn Công",
+      "actorRole": "approver",
+      "at": "2026-08-15T15:21:34.705Z",
+      "details": {
+        "borrowerId": "cong",
+        "room": "Phòng 1 - CS155",
+        "purpose": "Thực hành"
+      }
+    },
+    {
+      "id": "EVT-000056",
+      "commandId": "aa88f4f8-40d2-4d57-a0c3-3d7839dc3bf4",
+      "commandHash": "1eb2415d7a12816321c207bacdbfb94bce22fcd71a0c21236df4e7cf7b9d5a88",
+      "loanId": "PM-2026-0050",
+      "type": "manager_decide",
+      "fromStatus": "pending_manager",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T15:22:03.505Z",
+      "details": {
+        "decision": "approve",
+        "note": "",
+        "leaderDecision": null
+      }
+    },
+    {
+      "id": "EVT-000057",
+      "commandId": "a09e3d0f-839f-4cbe-acaf-9f64e082c98a",
+      "commandHash": "95db0b7580e1481e945a9240a23baae3f84a1adeebd533eb7bdc1a90a97777bf",
+      "loanId": "PM-2026-0050",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T15:22:57.207Z",
+      "details": {
+        "recipientId": "cong",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": "Đủ, tốt"
+      }
+    },
+    {
+      "id": "EVT-000058",
+      "commandId": "6935f296-29be-43ce-a1bf-ae4a589bc3b7",
+      "commandHash": "8babc116f505815981bfd9f2d72dafe6be219882f4bef71327075d743613853a",
+      "loanId": "PM-2026-0050",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "cong",
+      "actorKey": "cong",
+      "actorName": "Lê Văn Công",
+      "actorRole": "approver",
+      "at": "2026-08-15T15:23:31.479Z",
+      "details": {
+        "returnedBy": "cong",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-15",
+        "time": "22:23",
+        "note": "Máy chập chờn"
+      }
+    },
+    {
+      "id": "EVT-000059",
+      "commandId": "337bb56b-c022-4e6a-b595-a2c1da500880",
+      "commandHash": "5268b5d1e82cde2c3a995b7fc09c1b9b96de77154837259b82a1ebac8ce32686",
+      "loanId": "PM-2026-0050",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T15:50:07.930Z",
+      "details": {
+        "note": "Máy chập chờn"
+      }
+    },
+    {
+      "id": "EVT-000060",
+      "commandId": "4f0e0d6e-2e72-49b4-a5c8-c77b7c35aa9d",
+      "commandHash": "851780546ef4bb10f28e9a3569460aa0c3228eff84c336e1cfd2983089e85e68",
+      "loanId": "PM-2026-0051",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "cong",
+      "actorKey": "cong",
+      "actorName": "Lê Văn Công",
+      "actorRole": "approver",
+      "at": "2026-08-15T15:51:03.645Z",
+      "details": {
+        "borrowerId": "cong",
+        "room": "Phòng 2 - CS200",
+        "purpose": "Thực hàh"
+      }
+    },
+    {
+      "id": "EVT-000061",
+      "commandId": "a85c66f1-8b99-4fba-a7c2-ee8d14bff286",
+      "commandHash": "d4906efcfc1a2e4380683866f685c3b23fa85b3935aa2a98b573a227395787b4",
+      "loanId": "PM-2026-0051",
+      "type": "manager_decide",
+      "fromStatus": "pending_manager",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T15:51:23.498Z",
+      "details": {
+        "decision": "approve",
+        "note": "Nhận 8h anh nhé",
+        "leaderDecision": null
+      }
+    },
+    {
+      "id": "EVT-000062",
+      "commandId": "793e7a92-7fca-47d9-b475-41b80fc62867",
+      "commandHash": "9d03fbfb31d38516fb47f7e3e7e778f0af4eead76d7876575d129ed08517453f",
+      "loanId": "PM-2026-0051",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T15:51:41.870Z",
+      "details": {
+        "recipientId": "cong",
+        "room": "Phòng 2 - CS200",
+        "date": "2026-08-15",
+        "time": "10:45",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000063",
+      "commandId": "a45d03ba-365b-43b7-97bd-44de9d373ee6",
+      "commandHash": "c14fedd63ad32895389f2a87c2695bd0784fe0a3f66e5548da99a36ab98f90c6",
+      "loanId": "PM-2026-0051",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "cong",
+      "actorKey": "cong",
+      "actorName": "Lê Văn Công",
+      "actorRole": "approver",
+      "at": "2026-08-15T15:52:21.151Z",
+      "details": {
+        "returnedBy": "cong",
+        "room": "Phòng 2 - CS200",
+        "date": "2026-08-15",
+        "time": "22:52",
+        "note": "Ảo ma lắm"
+      }
+    },
+    {
+      "id": "EVT-000064",
+      "commandId": "094b9647-5746-4664-b0b8-a4036ad6104f",
+      "commandHash": "f4d1b2a8abd6cdced191954fb03c4bd5a0266b628ae5629f95db80f409497a94",
+      "loanId": "PM-2026-0051",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T15:53:04.656Z",
+      "details": {
+        "note": "Sẽ kiểm tra"
+      }
+    },
+    {
+      "id": "EVT-000065",
+      "commandId": "2f484db3-bd8a-46bc-b584-9b6665536354",
+      "commandHash": "2caf95874d0068da5f5c697009cc8706fd9ab348d262bcaf1e52b3497333eeaa",
+      "loanId": "PM-2026-0052",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T20:43:41.458Z",
+      "details": {
+        "borrowerId": "huan",
+        "room": "Phòng 3 - CS155",
+        "purpose": "TH"
+      }
+    },
+    {
+      "id": "EVT-000066",
+      "commandId": "ee459025-ed72-4480-ba7e-761026ece1f8",
+      "commandHash": "21589e7bbb23b4e73a581ddcbb91e80aec9f77baffeef5cedc7d31cd298be322",
+      "loanId": "PM-2026-0052",
+      "type": "manager_decide",
+      "fromStatus": "pending_manager",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T20:43:45.987Z",
+      "details": {
+        "decision": "approve",
+        "note": "",
+        "leaderDecision": null
+      }
+    },
+    {
+      "id": "EVT-000067",
+      "commandId": "f60dd335-01a6-44c5-b9af-544c415403b5",
+      "commandHash": "52d8be9cd1b53d879adabc09c519523b1e30a96ceb8807ff3281274cd21ac4ec",
+      "loanId": "PM-2026-0052",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T20:44:12.953Z",
+      "details": {
+        "recipientId": "huan",
+        "room": "Phòng 3 - CS155",
+        "date": "2026-08-16",
+        "time": "10:45",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000068",
+      "commandId": "b018fe0a-07f7-4ed5-a815-af57643417a2",
+      "commandHash": "dde198b7370e256fc68c08e8d8ff043a6d224499b4c1bc3471079876cfa033ae",
+      "loanId": "PM-2026-0052",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T20:44:21.559Z",
+      "details": {
+        "returnedBy": "huan",
+        "room": "Phòng 3 - CS155",
+        "date": "2026-08-16",
+        "time": "03:44",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000069",
+      "commandId": "15bf5cd1-7b64-48ce-a0f2-f1f5f7e9ed2c",
+      "commandHash": "e2d2a476fd577db5430047685db1c4db10165b78776e28a8b2ad783ac61b4936",
+      "loanId": "PM-2026-0052",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T20:55:13.896Z",
+      "details": {
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000070",
+      "commandId": "6468fa1a-93bf-4318-9280-89d64917b11f",
+      "commandHash": "6eb063ac4d3402c5747a627c5b7cc286db1a296699d972776e7646eade7f4731",
+      "loanId": "PM-2026-0053",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T22:56:25.575Z",
+      "details": {
+        "borrowerId": "huan",
+        "room": "Phòng 1 - CS155",
+        "purpose": "Thực hành"
+      }
+    },
+    {
+      "id": "EVT-000071",
+      "commandId": "b2500e98-147c-46ca-8fd8-c8c853d3fc58",
+      "commandHash": "4c32eb43d511c668c4c179357dad368fb77cffac40cd07455fa6d7ade508ac2a",
+      "loanId": "PM-2026-0053",
+      "type": "manager_decide",
+      "fromStatus": "pending_manager",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T22:56:29.765Z",
+      "details": {
+        "decision": "approve",
+        "note": "",
+        "leaderDecision": null
+      }
+    },
+    {
+      "id": "EVT-000072",
+      "commandId": "3fe57b1c-7c1c-45d9-9706-96df5ffc6496",
+      "commandHash": "940eb266b91557a34a0ce70865a1e25e42d1777c0ec15059eee29ae322f1956c",
+      "loanId": "PM-2026-0053",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T22:56:32.352Z",
+      "details": {
+        "recipientId": "huan",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-16",
+        "time": "10:45",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000073",
+      "commandId": "40412c97-b54d-407c-b5df-68d5a25570a6",
+      "commandHash": "198772cd6864db68e24ff95c6909eff804e47e6ac6d60155cc10ba3df1f089f3",
+      "loanId": "PM-2026-0053",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T22:56:40.027Z",
+      "details": {
+        "returnedBy": "huan",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-16",
+        "time": "05:56",
+        "note": "Bị lỗi"
+      }
+    },
+    {
+      "id": "EVT-000074",
+      "commandId": "f6522fcc-9564-431e-9158-53327c1d995e",
+      "commandHash": "61c8527f5ae7e3fdc91f33f65be3a93697735ab719a6b9ce15ce0552e8136f8a",
+      "loanId": "PM-2026-0053",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T22:56:50.545Z",
+      "details": {
+        "note": "Đúng",
+        "generalNote": "Sẽ sửa"
+      }
+    },
+    {
+      "id": "EVT-000075",
+      "commandId": "ded19ccd-92e2-4a69-8c2b-96db55044f94",
+      "commandHash": "dcc1eb195489d4526837d9f25174cf8ce6d4a39d2c4e3c66185c256fc3636a19",
+      "loanId": "PM-2026-0044",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "tot",
+      "actorKey": "tot",
+      "actorName": "Nguyễn Tốt",
+      "actorRole": "teacher",
+      "at": "2026-08-15T22:57:11.777Z",
+      "details": {
+        "returnedBy": "tot",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-16",
+        "time": "05:57",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000076",
+      "commandId": "7384bb4f-b0d3-42d1-8836-02fbff4afeff",
+      "commandHash": "ddd817c0d1d8223779f1f089099e3ae498acab95dc790af15c6405ab164ca50a",
+      "loanId": "PM-2026-0044",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T22:57:38.162Z",
+      "details": {
+        "note": "",
+        "generalNote": ""
+      }
+    },
+    {
+      "id": "EVT-000077",
+      "commandId": "a645c682-8cf1-4ba9-93ca-c46f7de840b8",
+      "commandHash": "e2afb64943f7f19212f618d36a9c420669d410126be8de8ef293793134a18ffb",
+      "loanId": "PM-2026-0054",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T22:58:02.038Z",
+      "details": {
+        "borrowerId": "huan",
+        "room": "Phòng 2 - CS155",
+        "purpose": "Thực hành"
+      }
+    },
+    {
+      "id": "EVT-000078",
+      "commandId": "ede8b7dc-13e5-4e9c-9960-a1a9901557d8",
+      "commandHash": "1586af82afab06be9bb01d9063d46316a9f044f575b9929140513e9b6433715b",
+      "loanId": "PM-2026-0054",
+      "type": "manager_decide",
+      "fromStatus": "pending_manager",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T22:58:06.134Z",
+      "details": {
+        "decision": "approve",
+        "note": "",
+        "leaderDecision": null
+      }
+    },
+    {
+      "id": "EVT-000079",
+      "commandId": "47a83db1-53b5-4c7c-b7ef-d994997e6cfe",
+      "commandHash": "b596a10440233bf47b953926ef554ab271a2fcdc76b0c7a624a0a2e9f0730a2e",
+      "loanId": "PM-2025-0042",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "thanh",
+      "actorKey": "thanh",
+      "actorName": "Đậu Trung Thành",
+      "actorRole": "teacher",
+      "at": "2026-08-15T23:21:38.142Z",
+      "details": {
+        "returnedBy": "thanh",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-16",
+        "time": "06:21",
+        "note": "Hư"
+      }
+    },
+    {
+      "id": "EVT-000080",
+      "commandId": "1111da1e-e114-46c9-87a2-3afaccd0d74e",
+      "commandHash": "fc2e18f3e85e113766de573f323b2093d5ff729425d9462292e3de41cf10dc24",
+      "loanId": "PM-2025-0041",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "tot",
+      "actorKey": "tot",
+      "actorName": "Nguyễn Tốt",
+      "actorRole": "teacher",
+      "at": "2026-08-15T23:22:38.155Z",
+      "details": {
+        "returnedBy": "tot",
+        "room": "Phòng 2 - CS200",
+        "date": "2026-08-16",
+        "time": "06:22",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000081",
+      "commandId": "47d92ca3-32d4-4d32-86aa-beb66b1aeac5",
+      "commandHash": "c42a98915e057124af476fd6871f10a1985e5ff57d812dc677df73a020ab7b48",
+      "loanId": "PM-2025-0040",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "quan",
+      "actorKey": "quan",
+      "actorName": "Phạm Minh Quân",
+      "actorRole": "teacher",
+      "at": "2026-08-15T23:22:47.196Z",
+      "details": {
+        "returnedBy": "quan",
+        "room": "Phòng 3 - CS155",
+        "date": "2026-08-16",
+        "time": "06:22",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000082",
+      "commandId": "d0d344d9-a9f1-4039-90ac-e7e7a945e58c",
+      "commandHash": "5ebcc5b70f895dcfc1d6fbfe69e3fc41db63162eaea0ac010df083315bc073d2",
+      "loanId": "PM-2025-0039",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "be",
+      "actorKey": "be",
+      "actorName": "Nguyễn Văn Bé",
+      "actorRole": "teacher",
+      "at": "2026-08-15T23:23:15.468Z",
+      "details": {
+        "returnedBy": "be",
+        "room": "Phòng 1 - CS155",
+        "date": "2026-08-16",
+        "time": "06:23",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000083",
+      "commandId": "d3ebbdc5-1e89-44f4-bcb3-b5e74d41cb6a",
+      "commandHash": "8835d6d503d6477f677af3f598e4ed1b48cf67d397db898ac0c76b1f58d2c9ae",
+      "loanId": "PM-2026-0054",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-15T23:23:45.228Z",
+      "details": {
+        "recipientId": "huan",
+        "room": "Phòng 2 - CS155",
+        "date": "2026-08-16",
+        "time": "10:45",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000084",
+      "commandId": "29f7017c-eade-4c85-a8e6-157610d76846",
+      "commandHash": "5c8a587f483e0e691c0e9c8fe21838f5e9259de1a6160e8d1b3bffa7c39d37c9",
+      "loanId": "PM-2026-0055",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-16T06:17:07.671Z",
+      "details": {
+        "borrowerId": "huan",
+        "room": "Phòng 2 - CS155",
+        "purpose": "Thực hành"
+      }
+    },
+    {
+      "id": "EVT-000085",
+      "commandId": "a86bb2db-2cc8-44c9-b454-a7a7c9da5c0f",
+      "commandHash": "c3af56c07ff2db00adfdc4414a7c334e35a2ef2faf693251b8a47545ad0edf4f",
+      "loanId": "PM-2026-0056",
+      "type": "submit",
+      "fromStatus": null,
+      "toStatus": "pending_manager",
+      "actorId": "cong",
+      "actorKey": "cong",
+      "actorName": "Lê Văn Công",
+      "actorRole": "approver",
+      "at": "2026-08-16T08:04:22.202Z",
+      "details": {
+        "borrowerId": "cong",
+        "room": "Phòng 2 - CS155",
+        "purpose": "Thực hành"
+      }
+    },
+    {
+      "id": "EVT-000086",
+      "commandId": "2686818a-9d94-40a0-8202-c5818c8d2d50",
+      "commandHash": "8a52d2cda65c0c9bcdbdd7ab492e9f67b1a91730356abae8dc14e492fac6b9c5",
+      "loanId": "PM-2026-0056",
+      "type": "request_leader",
+      "fromStatus": "pending_manager",
+      "toStatus": "pending_leader",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-16T08:04:59.249Z",
+      "details": {
+        "leaderId": "cong",
+        "leaderName": "Lê Văn Công",
+        "note": "Đưa ra ngoài"
+      }
+    },
+    {
+      "id": "EVT-000087",
+      "commandId": "04da3446-1c64-476f-8ea6-ff884e0787d2",
+      "commandHash": "a960bbac6613b1bbb2a0eabd18e71fa630450fcd120d37a344514f3041826f8a",
+      "loanId": "PM-2026-0055",
+      "type": "manager_decide",
+      "fromStatus": "pending_manager",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-16T08:05:03.288Z",
+      "details": {
+        "decision": "approve",
+        "note": "Đưa ra ngoài",
+        "leaderDecision": null
+      }
+    },
+    {
+      "id": "EVT-000088",
+      "commandId": "94ecfdc8-4cec-411f-9a5a-4add8b59fb58",
+      "commandHash": "8101af91496d81a7f1a1dd7ec58e5cd1c539c58cb19a6f71042a4294db681779",
+      "loanId": "PM-2026-0055",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-16T08:05:09.976Z",
+      "details": {
+        "recipientId": "huan",
+        "room": "Phòng 2 - CS155",
+        "date": "2026-08-16",
+        "time": "10:45",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000089",
+      "commandId": "192ae92e-3e52-420f-a38f-69a50a62cac8",
+      "commandHash": "a9e3fe0700c2db8f9eab9700163584f6d497421aa4189b4b5accaf2885bb0bf4",
+      "loanId": "PM-2026-0056",
+      "type": "leader_opinion",
+      "fromStatus": "pending_leader",
+      "toStatus": "leader_opinion_returned",
+      "actorId": "cong",
+      "actorKey": "cong",
+      "actorName": "Lê Văn Công",
+      "actorRole": "approver",
+      "at": "2026-08-16T08:05:22.610Z",
+      "details": {
+        "decision": "approve",
+        "note": "Đồng ý"
+      }
+    },
+    {
+      "id": "EVT-000090",
+      "commandId": "1627d2e7-9d30-4a09-8621-3524c31f7abb",
+      "commandHash": "c8b91b4bcb391da07cb43477b7795eff0cda3e97dfecaf2edd6f2a42a6b9ce41",
+      "loanId": "PM-2026-0056",
+      "type": "manager_decide",
+      "fromStatus": "leader_opinion_returned",
+      "toStatus": "approved",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-16T08:05:32.618Z",
+      "details": {
+        "decision": "approve",
+        "note": "Đồng ý",
+        "leaderDecision": "approve"
+      }
+    },
+    {
+      "id": "EVT-000091",
+      "commandId": "dfbc18a3-63e3-4e60-84f5-eb476c9f9939",
+      "commandHash": "42a0fc807181722618549a405de0ca5e371fcf4b877b8c3cd39f831fe1a6168f",
+      "loanId": "PM-2026-0056",
+      "type": "confirm_handoff",
+      "fromStatus": "approved",
+      "toStatus": "borrowing",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-16T08:05:35.721Z",
+      "details": {
+        "recipientId": "cong",
+        "room": "Phòng 2 - CS155",
+        "date": "2026-08-16",
+        "time": "10:45",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000092",
+      "commandId": "d32979ad-6b0d-4bec-950c-aca5688fcd92",
+      "commandHash": "90f3f11c4f7f4a4b58be2bb8e181234df01174f1b654ef890c5727de2d37a4f1",
+      "loanId": "PM-2025-0042",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-16T08:05:52.089Z",
+      "details": {
+        "note": "Đúng",
+        "generalNote": "Sửa"
+      }
+    },
+    {
+      "id": "EVT-000093",
+      "commandId": "50fc7382-ef15-46a8-86c6-3262b41f9df1",
+      "commandHash": "1e04a35f5276fc7ab009baa015c63101f5421483c165081d77caba8ec5fc6279",
+      "loanId": "PM-2025-0041",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-16T08:05:58.032Z",
+      "details": {
+        "note": "",
+        "generalNote": ""
+      }
+    },
+    {
+      "id": "EVT-000094",
+      "commandId": "3ca2b98f-deed-483b-be50-1860d5f628fb",
+      "commandHash": "d089ebac75c8ccda14cd59f1c3d303ca216302a1e036291a98532695ff3c4bd6",
+      "loanId": "PM-2025-0040",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-16T08:06:01.328Z",
+      "details": {
+        "note": "",
+        "generalNote": ""
+      }
+    },
+    {
+      "id": "EVT-000095",
+      "commandId": "e801aa59-2ca9-4d23-9a80-35a022b841f7",
+      "commandHash": "6647dc9aa2fa70da29b5c436bfd6740b91da94192e2ef0ce42ae9ef70d4d490e",
+      "loanId": "PM-2025-0039",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-16T08:06:04.401Z",
+      "details": {
+        "note": "",
+        "generalNote": ""
+      }
+    },
+    {
+      "id": "EVT-000096",
+      "commandId": "aef488d6-ba9d-4770-a446-6adb402fd5c0",
+      "commandHash": "0fa7d3dd85a965fa7a491bbbaef96c98321573dd86dd758116d9c0c9e46fd091",
+      "loanId": "PM-2026-0055",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-16T08:06:38.040Z",
+      "details": {
+        "returnedBy": "huan",
+        "room": "Phòng 2 - CS155",
+        "date": "2026-08-16",
+        "time": "15:06",
+        "note": "HƯ"
+      }
+    },
+    {
+      "id": "EVT-000097",
+      "commandId": "1cc28d1a-f39b-4080-ad4d-d4429e207e94",
+      "commandHash": "07a3e8e05e9c9003efa984d9aa985ae3fcbeae6936d73bc09c437ad5523ef082",
+      "loanId": "PM-2026-0055",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-16T08:06:40.512Z",
+      "details": {
+        "note": "",
+        "generalNote": ""
+      }
+    },
+    {
+      "id": "EVT-000098",
+      "commandId": "6bdea031-8a2f-4aca-9373-c9f411e82503",
+      "commandHash": "88b969187923617853d7afc4d7a5bf98dcb454d0531f48cb94f74c13cf8caff5",
+      "loanId": "PM-2026-0054",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-16T08:06:47.360Z",
+      "details": {
+        "returnedBy": "huan",
+        "room": "Phòng 2 - CS155",
+        "date": "2026-08-16",
+        "time": "15:06",
+        "note": "HƯ"
+      }
+    },
+    {
+      "id": "EVT-000099",
+      "commandId": "793341f7-433e-4978-827f-58e5119b6308",
+      "commandHash": "95b3571a22cce9fdd2e88ab97efa5da7275d6e25ab457127c76d99708376f2c0",
+      "loanId": "PM-2026-0054",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-16T08:06:54.953Z",
+      "details": {
+        "note": "Đúng",
+        "generalNote": "Sửa"
+      }
+    },
+    {
+      "id": "EVT-000100",
+      "commandId": "ca452341-0411-40c8-b0d7-92b0dbb88236",
+      "commandHash": "e01cda7ebff2cfa29db7e4b7eaf089813dbac05b4250cdf9949d2898df924daf",
+      "loanId": "PM-2026-0056",
+      "type": "request_return",
+      "fromStatus": "borrowing",
+      "toStatus": "return_pending",
+      "actorId": "cong",
+      "actorKey": "cong",
+      "actorName": "Lê Văn Công",
+      "actorRole": "approver",
+      "at": "2026-08-16T12:54:11.810Z",
+      "details": {
+        "returnedBy": "cong",
+        "room": "Phòng 2 - CS155",
+        "date": "2026-08-16",
+        "time": "19:54",
+        "note": ""
+      }
+    },
+    {
+      "id": "EVT-000101",
+      "commandId": "80b680d7-b7f0-499e-9d6b-129638ef49d3",
+      "commandHash": "22bb0bb6cd998fbc0c6fe8372be7550dce63ca899861a0fccfbf9834c9f9c7a3",
+      "loanId": "PM-2026-0056",
+      "type": "confirm_return",
+      "fromStatus": "return_pending",
+      "toStatus": "returned",
+      "actorId": "huan",
+      "actorKey": "huan",
+      "actorName": "Trần Xuân Huấn",
+      "actorRole": "manager",
+      "at": "2026-08-16T12:54:32.700Z",
+      "details": {
+        "note": "",
+        "generalNote": ""
+      }
+    }
+  ],
+  "inventory": [
+    {
+      "id": "A-STT-001",
+      "name": "Máy ảnh kỹ thuật số (kèm ống kính tele và macro)",
+      "model": "Pentax KF - Ricoh Imaging Company Ltd - Philippines",
+      "room": "Phòng 1 - CS155",
+      "qty": 3,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-002",
+      "name": "Camera kỹ thuật số",
+      "model": "HC-VXF1 - Panasonic - Malaysia",
+      "room": "Phòng 1 - CS155",
+      "qty": 3,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-003",
+      "name": "Bộ đèn đa phổ",
+      "model": "ALS-9EXTREME - SOHO Network Solutions Inc - Mỹ",
+      "room": "Phòng 1 - CS155",
+      "qty": 2,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-004",
+      "name": "Đèn tử ngoại",
+      "model": "UVA LigHT Kit - Innos Technologies Inc - Canada",
+      "room": "Phòng 1 - CS155",
+      "qty": 2,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-005",
+      "name": "Kính lúp",
+      "model": "MA-025 - Prokit's Industries Co.,Ltd - Trung Quốc",
+      "room": "Phòng 1 - CS155",
+      "qty": 20,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-006",
+      "name": "Kính hiển vi soi nổi kết nối camera",
+      "model": "Stemi 508 - Carl Zeiss Microscopy GmbH - Trung Quốc",
+      "room": "Phòng 1 - CS155",
+      "qty": 3,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-007",
+      "name": "Kính hiển vi soi nổi thường",
+      "model": "EMZ-Y-55 - Meiji Techno Co.,Ltd - Nhật Bản",
+      "room": "Phòng 1 - CS155",
+      "qty": 3,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-008",
+      "name": "Valy khám nghiệm hiện trường tổng hợp",
+      "model": "SH-CSIKIT-DL - SOHO Network Solutions Inc - Mỹ",
+      "room": "Phòng 1 - CS155",
+      "qty": 5,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-009",
+      "name": "Đồng hồ đo điện vạn năng",
+      "model": "DT4282 - Hioki E.E Corporation - Nhật Bản",
+      "room": "Phòng 1 - CS155",
+      "qty": 5,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-010",
+      "name": "Bộ phát hiện dấu vết đường vân",
+      "model": "ForteLite LigHT - X-Loupe - Innos Technology Co., Ltd - Đài Loan",
+      "room": "Phòng 1 - CS155",
+      "qty": 2,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-011",
+      "name": "Thiết bị đa phổ phát hiện dấu vết đường vân, dấu vết máu, dịch cơ thể, ADN",
+      "model": "BlindSite Scene MULTI-EVIDENCE - Smytec Ltd - Anh",
+      "room": "Phòng 1 - CS155",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-012",
+      "name": "Bộ tìm kiếm camera tại hiện trường",
+      "model": "OPTIC-2 - Selcom Security JSC - Lithuania",
+      "room": "Phòng 1 - CS155",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-013",
+      "name": "Thiết bị quét vân tay trực tiếp",
+      "model": "Kojak - Integrated Biometrics - IBKorea Ltd - Hàn Quốc",
+      "room": "Phòng 1 - CS155",
+      "qty": 3,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-014",
+      "name": "Đèn chiếu sáng khám nghiệm hiện trường",
+      "model": "SX-24 - Fireco S.R.L - Italia",
+      "room": "Phòng 1 - CS155",
+      "qty": 2,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-015",
+      "name": "Đèn UV di động",
+      "model": "UV LigHT Kit 1 - Innos Technologies Inc - Canada",
+      "room": "Phòng 1 - CS155",
+      "qty": 20,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-016",
+      "name": "Thiết bị soi chiếu khe hẹp",
+      "model": "IFS-Series - iForce Technology LLC - Mỹ",
+      "room": "Phòng 1 - CS155",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-017",
+      "name": "Hệ thống bẻ khóa và giải mã điện thoại thông minh",
+      "model": "PC-3000 Mobile Pro - Acelab Europe s.r.o - Séc",
+      "room": "Phòng 1 - CS155",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-018",
+      "name": "Máy báo động vô tuyến (sử dụng các đầu báo không dây)",
+      "model": "VNCSS.SESACO.VN - CTCP Thiết bị giám sát và công trình Việt Nam - Việt Nam",
+      "room": "Phòng 1 - CS155",
+      "qty": 5,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-019",
+      "name": "Máy báo động và tự động truyền tín hiệu qua điện thoại di động",
+      "model": "VNCSS.SESACO.VN-03 - CTCP Thiết bị giám sát và công trình Việt Nam - Việt Nam",
+      "room": "Phòng 1 - CS155",
+      "qty": 5,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-020",
+      "name": "Máy báo động chống cắt phá cáp lõi đồng",
+      "model": "VNCSS.SESACO.VN-05 - CTCP Thiết bị giám sát và công trình Việt Nam - Việt Nam",
+      "room": "Phòng 1 - CS155",
+      "qty": 5,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-021",
+      "name": "Đầu báo hồng ngoại vô tuyến",
+      "model": "PIR-V1 - CTCP Thiết bị giám sát và công trình Việt Nam - Việt Nam",
+      "room": "Phòng 3 - CS155",
+      "qty": 5,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-022",
+      "name": "Đầu báo hồng ngoại hữu tuyến",
+      "model": "PIR-V2 - CTCP Thiết bị giám sát và công trình Việt Nam - Việt Nam",
+      "room": "Phòng 3 - CS155",
+      "qty": 5,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-023",
+      "name": "Đầu báo từ vô tuyến",
+      "model": "SND-V1 - CTCP Thiết bị giám sát và công trình Việt Nam - Việt Nam",
+      "room": "Phòng 3 - CS155",
+      "qty": 5,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-024",
+      "name": "Đầu báo từ hữu tuyến",
+      "model": "SND-V2 - CTCP Thiết bị giám sát và công trình Việt Nam - Việt Nam",
+      "room": "Phòng 3 - CS155",
+      "qty": 5,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-025",
+      "name": "Camera IP 36 tầm xa",
+      "model": "ISCP15X25 - Innos Technologies Inc - Canada",
+      "room": "Phòng 3 - CS155",
+      "qty": 5,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-026",
+      "name": "Camera thân dài",
+      "model": "ISCM15X3 - Innos Technologies Inc - Canada",
+      "room": "Phòng 3 - CS155",
+      "qty": 5,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-027",
+      "name": "Camera tròn",
+      "model": "ISCD15X3 - Innos Technologies Inc - Canada",
+      "room": "Phòng 3 - CS155",
+      "qty": 5,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-028",
+      "name": "Hệ thống định vị GPS",
+      "model": "Geofinder-EX - Innos Technologies Inc - Canada",
+      "room": "Phòng 3 - CS155",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-029",
+      "name": "Phần mềm giám định vân tay tự động",
+      "model": "FCS V5 - Forensic Comparison Software Pty Ltd - Australia",
+      "room": "Phòng 1 - CS155",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-030",
+      "name": "Thiết bị giám định tài liệu",
+      "model": "TS 64 - Daetech Systems (UK) Ltd - Anh",
+      "room": "Phòng 1 - CS155",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-031",
+      "name": "Hệ thống nâng cao chất lượng ảnh, video",
+      "model": "TrucFace - Indochina Technologies PTE Ltd - Singapore",
+      "room": "Phòng 1 - CS155",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-STT-032",
+      "name": "Hệ thống nhận dạng khuôn mặt",
+      "model": "TrucFace - Indochina Technologies PTE Ltd - Singapore",
+      "room": "Phòng 1 - CS155",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-010",
+      "name": "Bộ xử lý I-ốt (dùng cho tủ xông I-ốt) - K4 - PTH",
+      "model": "Mã tài sản: 2400001249; Năm sử dụng: 2017",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-018",
+      "name": "Kính hiển vi KTS UM012C - K4 - PTH",
+      "model": "Mã tài sản: 2400001241; Năm sử dụng: 2018",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-019",
+      "name": "Kính hiển vi KTS UM012C - K4 - PTH",
+      "model": "Mã tài sản: 2400001242; Năm sử dụng: 2018",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-020",
+      "name": "Kính hiển vi KTS UM012C - K4 - PTH",
+      "model": "Mã tài sản: 2400001243; Năm sử dụng: 2018",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-021",
+      "name": "Kính hiển vi KTS UM012C - K4 - PTH",
+      "model": "Mã tài sản: 2400001244; Năm sử dụng: 2018",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-022",
+      "name": "Kính hiển vi soi nổi có camera - K4 - PTH - T49",
+      "model": "Mã tài sản: 2400001245; Năm sử dụng: 2018",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-023",
+      "name": "Kính hiển vi soi nổi có camera - K4 - PTH - T49",
+      "model": "Mã tài sản: 2400001246; Năm sử dụng: 2018",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-024",
+      "name": "Mô hình giải phẫu cơ thể người - K4 - PTH - T49",
+      "model": "Mã tài sản: 2400001204; Năm sử dụng: 2018",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-029",
+      "name": "Tủ xông I-ốt 214CA220 (phát hiện dấu vân chìm bằng i-ốt và ninhydrin) - K4 - PTH",
+      "model": "Mã tài sản: 2400001248; Năm sử dụng: 2019",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-030",
+      "name": "Tủ xông keo AEC 4000 (hiển thị dấu vết đường vân) - K4 - PTH",
+      "model": "Mã tài sản: 2400001247; Năm sử dụng: 2019",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-042",
+      "name": "Bộ dụng cụ niêm phong, bảo quản mẫu vật và thu giữ dấu vết hiện trường (TV-11/H09) - K4 - PTH",
+      "model": "Mã tài sản: 2400012343; Năm sử dụng: 2024",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-043",
+      "name": "Bộ dụng cụ niêm phong, bảo quản mẫu vật và thu giữ dấu vết hiện trường (TV-11/H09) - K4 - PTH",
+      "model": "Mã tài sản: 2400012344; Năm sử dụng: 2024",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-044",
+      "name": "Bộ dụng cụ niêm phong, bảo quản tang vật - K4 - PTH - T49",
+      "model": "Mã tài sản: 2400001270; Năm sử dụng: 2018",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-045",
+      "name": "Bộ dụng cụ niêm phong, bảo quản tang vật - K4 - PTH - T49",
+      "model": "Mã tài sản: 2400001271; Năm sử dụng: 2018",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-046",
+      "name": "Bộ số kim loại 10 số - K4 - PTH - T49",
+      "model": "Mã tài sản: 2400003481; Năm sử dụng: 2014",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-047",
+      "name": "Bộ test phát hiện nhanh dấu vết máu, dấu vết tinh dịch và nhóm máu của người (Biotest-3.1/H09) - K4 - PTH",
+      "model": "Mã tài sản: 2400012341; Năm sử dụng: 2024",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-048",
+      "name": "Bộ test phát hiện nhanh dấu vết máu, dấu vết tinh dịch và nhóm máu của người (Biotest-3.1/H09) - K4 - PTH",
+      "model": "Mã tài sản: 2400012342; Năm sử dụng: 2024",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-049",
+      "name": "Bộ test phát hiện nhanh dấu vết máu, dấu vết tinh dịch và nhóm máu của người (Biotest-3.1/H09) - K4 - PTH",
+      "model": "Mã tài sản: 2400013249; Năm sử dụng: 2024",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-050",
+      "name": "Bộ test phát hiện nhanh dấu vết máu, dấu vết tinh dịch và nhóm máu của người (Biotest-3.1/H09) - K4 - PTH",
+      "model": "Mã tài sản: 2400013250; Năm sử dụng: 2024",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-051",
+      "name": "Đèn pin chuyên dụng - K4 - PTH - T49",
+      "model": "Mã tài sản: từ mã số 2400003474 đến mã số 2400003480; Năm sử dụng: 2015",
+      "room": "Phòng 2 - CS200",
+      "qty": 7,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-052",
+      "name": "Máy ảnh CANON EOS 750D Kit (EF-S18-55mm IS STM) - K4 - PTH",
+      "model": "Mã tài sản: 2400003502; Năm sử dụng: 2017",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-053",
+      "name": "Máy ảnh CANON EOS 750D Kit (EF-S18-55mm IS STM) - K4 - PTH",
+      "model": "Mã tài sản: 2400003503; Năm sử dụng: 2017",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-059",
+      "name": "Máy ảnh Nikon D5300 + ống kính Micro Nikon 105mm - K4 - PTH",
+      "model": "Mã tài sản: 2400006775; Năm sử dụng: 2013",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-060",
+      "name": "Máy ảnh Nikon D5300 + ống kính Micro Nikon 105mm - K4 - PTH",
+      "model": "Mã tài sản: 2400006775; Năm sử dụng: 2013",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-062",
+      "name": "Máy ảnh Nikon D7000 + ống kính 18-105 VR - K4 - PTH",
+      "model": "Mã tài sản: K4 - PTH; Năm sử dụng: 2013",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-063",
+      "name": "Máy đo khoảng cách Leica Disto D210 - K4 - PTH",
+      "model": "Mã tài sản: 2400001237; Năm sử dụng: 2014",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-064",
+      "name": "Máy đo khoảng cách Leica Disto D210 - K4 - PTH",
+      "model": "Mã tài sản: 2400001238; Năm sử dụng: 2014",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-065",
+      "name": "Máy đo khoảng cách Leica Disto D210 - K4 - PTH",
+      "model": "Mã tài sản: 2400001239; Năm sử dụng: 2015",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-066",
+      "name": "Máy đo khoảng cách Leica Disto D210 - K4 - PTH",
+      "model": "Mã tài sản: 2400001240; Năm sử dụng: 2015",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-073",
+      "name": "Ống kính lẻ Nikon 105mm F/2.8 VR Nano - K4 - PTH",
+      "model": "Mã tài sản: 2400001257; Năm sử dụng: 2013",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-074",
+      "name": "Ống kính lẻ Nikon 105mm F/2.8 VR Nano - K4 - PTH",
+      "model": "Mã tài sản: K4 - PTH; Năm sử dụng: 2013",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-075",
+      "name": "Ống kính Nikon 80-400mm - K4 - PTH",
+      "model": "Mã tài sản: 2400001258; Năm sử dụng: 2013",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "Ống kính to màu đen, trọng lượng khoảng 1kg",
+      "custom": false
+    },
+    {
+      "id": "A-TT-083",
+      "name": "Valy giải phẫu pháp y - K4 - PTH - T49",
+      "model": "Mã tài sản: 2400006156; Năm sử dụng: 2011",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-084",
+      "name": "Valy khám nghiệm hiện trường - K4 - PTH - T49",
+      "model": "Mã tài sản: 2400003471; Năm sử dụng: 2018",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "Vật tư tiêu hao",
+      "custom": false
+    },
+    {
+      "id": "A-TT-085",
+      "name": "Valy khám nghiệm hiện trường - K4 - PTH - T52",
+      "model": "Mã tài sản: 2400003470; Năm sử dụng: 2016",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "Vật tư tiêu hao",
+      "custom": false
+    },
+    {
+      "id": "A-TT-086",
+      "name": "Valy khám nghiệm hiện trường - T49 - K4 - PTH",
+      "model": "Mã tài sản: 2400003472; Năm sử dụng: 2013",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "Vật tư tiêu hao",
+      "custom": false
+    },
+    {
+      "id": "A-TT-087",
+      "name": "Valy khám nghiệm hiện trường - T49 - K4 - PTH",
+      "model": "Mã tài sản: 2400003473; Năm sử dụng: 2013",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "Vật tư tiêu hao",
+      "custom": false
+    },
+    {
+      "id": "A-TT-088",
+      "name": "Valy nguồn sáng hình sự (7 đèn màu, kính màu, thuốc thử) - K4 - PTH",
+      "model": "Mã tài sản: 2400001262; Năm sử dụng: 2014",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-103",
+      "name": "Máy dò kim loại (KLC VH/H09) - K4 - PTH",
+      "model": "Mã tài sản: 2400013233; Năm sử dụng: 2025",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    },
+    {
+      "id": "A-TT-104",
+      "name": "Máy dò kim loại (KLC VH/H09) - K4 - PTH",
+      "model": "Mã tài sản: 2400013234; Năm sử dụng: 2025",
+      "room": "Phòng 2 - CS200",
+      "qty": 1,
+      "status": "Tốt",
+      "note": "",
+      "custom": false
+    }
+  ],
+  "loanSequences": {
+    "2025": 42,
+    "2026": 56
+  }
+}

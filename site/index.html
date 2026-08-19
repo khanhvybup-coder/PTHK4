@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khoa Kỹ thuật Hình sự | Tổng quan</title>
+    <script>
+      if (window.location.protocol === 'file:') {
+        window.location.replace(`http://127.0.0.1:4173/${window.location.search}${window.location.hash}`);
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="appSidebar" aria-label="Thanh điều hướng">
+        <div class="brand-block">
+          <div>
+            <div class="brand-title">KHOA KỸ THUẬT HÌNH SỰ</div>
+            <div class="brand-subtitle">Hệ thống quản lý phòng thực hành</div>
+          </div>
+        </div>
+
+        <nav class="main-nav">
+          <button class="nav-item active" data-section="Tổng quan" data-view="overviewView">
+            <span class="nav-icon">▦</span>
+            <span>Tổng quan</span>
+          </button>
+          <button class="nav-item" data-section="Phòng thực hành" data-view="roomsView">
+            <span class="nav-icon">▣</span>
+            <span>Phòng thực hành</span>
+          </button>
+          <button class="nav-item" data-section="Phương tiện" data-view="equipmentView">
+            <span class="nav-icon">▤</span>
+            <span>Phương tiện</span>
+          </button>
+          <button class="nav-item" data-section="Quản lý Mượn - Trả" data-view="borrowView">
+            <span class="nav-icon">⇄</span>
+            <span>Quản lý Mượn - Trả</span>
+          </button>
+          <button class="nav-item" data-section="Thống kê - Báo cáo" data-view="reportsView">
+            <span class="nav-icon">▥</span>
+            <span>Thống kê - Báo cáo</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="copyright">© 2026 KTHS - Phiên bản chính thức</div>
+        </div>
+      </aside>
+      <button class="mobile-nav-backdrop" id="mobileNavBackdrop" type="button" aria-label="Đóng menu" hidden></button>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="topbar-title">
+            <button class="mobile-nav-toggle" id="mobileNavToggle" type="button" aria-controls="appSidebar" aria-expanded="false" aria-label="Mở menu chức năng">
+              <span aria-hidden="true"></span>
+            </button>
+            <h1 id="pageTitle">Tổng quan</h1>
+          </div>
+          <div class="topbar-actions">
+            <span class="topbar-date-wrap">
+              <button class="date-button" id="dateButton" type="button" aria-label="Chọn ngày làm việc" aria-haspopup="dialog">
+                <span class="calendar-icon" aria-hidden="true"></span>
+                <span class="date-copy"><strong id="topbarDateText">Thứ Tư, 14/05/2025</strong></span>
+                <span class="date-chevron" aria-hidden="true">⌄</span>
+              </button>
+              <input class="topbar-date-picker" id="topbarDatePicker" type="date" value="2025-05-14" tabindex="-1" aria-label="Chọn ngày làm việc" />
+            </span>
+            <button class="icon-button notification-button" id="notificationButton" aria-label="Thông báo">
+              <span class="bell-icon" aria-hidden="true"></span>
+              <span class="notification-count" id="notificationCount" hidden aria-hidden="true"></span>
+            </button>
+            <button class="password-top-button" id="passwordTopButton" type="button" aria-expanded="false" aria-controls="topProfileMenu">
+              <span class="password-top-icon" aria-hidden="true"></span>
+              <span>Mật khẩu</span>
+            </button>
+            <div class="top-profile-wrap">
+              <button class="profile-top" id="topProfileButton" aria-expanded="false" aria-controls="topProfileMenu">
+                <span class="avatar" id="topProfileAvatar">XH</span>
+                <span class="profile-name" id="topProfileName">Trần Xuân Huấn</span>
+                <span class="chevron dark">⌄</span>
+              </button>
+              <div class="profile-menu top-profile-menu" id="topProfileMenu" hidden>
+                <div class="profile-menu-title">Người dùng và phân quyền</div>
+                <div id="topProfileOptions"></div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="content-wrap" id="overviewView">
+          <section class="metrics-grid" aria-label="Chỉ số tổng quan">
+            <article class="metric-card blue">
+              <div class="metric-icon overview-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M10 42V8a2 2 0 0 1 2-2h21a2 2 0 0 1 2 2v34M5 42h38M18 42V31h9v11M17 15h3m7 0h3m-13 8h3m7 0h3" /></svg>
+              </div>
+              <div class="metric-copy"><span>PHÒNG THỰC HÀNH</span><strong id="overviewRoomTotal">0</strong><small>Phòng</small></div>
+            </article>
+            <article class="metric-card green">
+              <div class="metric-icon overview-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><rect x="5" y="7" width="31" height="23" rx="2" /><path d="M16 37h10m-5-7v7M13 18l5 5 10-11" /><circle cx="37" cy="34" r="6" /><circle cx="37" cy="34" r="2" /><path d="M37 25v3m0 12v3m-12-9h3m12 0h3m-15-6 2 2m9 9 2 2m0-13-2 2m-9 9-2 2" /></svg>
+              </div>
+              <div class="metric-copy"><span>PHƯƠNG TIỆN</span><strong id="overviewEquipmentTotal">0</strong><small>Thiết bị</small></div>
+            </article>
+            <article class="metric-card orange">
+              <div class="metric-icon overview-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M8 20l16 8 16-8M8 20l16-8 16 8v18l-16 8-16-8V20zM24 28v18" /><path d="M24 17V3m-5 5 5-5 5 5" /></svg>
+              </div>
+              <div class="metric-copy"><span>ĐANG MƯỢN</span><strong id="overviewBorrowed">0</strong><small>Thiết bị</small></div>
+            </article>
+            <article class="metric-card red">
+              <div class="metric-icon overview-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><circle cx="21" cy="22" r="16" /><path d="M21 12v11l7 5" /><circle class="kpi-badge-bg" cx="38" cy="37" r="7" /><path d="M38 33v5m0 3h.01" /></svg>
+              </div>
+              <div class="metric-copy"><span>QUÁ HẠN</span><strong id="overviewOverdue">0</strong><small>Thiết bị</small></div>
+            </article>
+            <article class="metric-card mint">
+              <div class="metric-icon overview-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M7 16l17-9 17 9-17 9-17-9zM7 16v20l17 9 17-9V16M24 25v20" /><circle class="kpi-badge-bg" cx="37" cy="36" r="8" /><path d="m33 36 3 3 5-6" /></svg>
+              </div>
+              <div class="metric-copy"><span>TỒN KHO</span><strong id="overviewAvailable">0</strong><small>Thiết bị</small></div>
+            </article>
+          </section>
+
+          <section class="split-grid top-panels">
+            <article class="panel usage-panel">
+              <div class="panel-header"><h2>Tổng hợp phòng thực hành</h2><button class="link-button" data-toast="Đã mở danh sách phòng thực hành">Xem tất cả</button></div>
+              <div class="table-scroll">
+                <table>
+                  <thead><tr><th>Phòng thực hành</th><th>Loại phương tiện</th><th>Tổng số lượng</th><th>Tình trạng</th></tr></thead>
+                  <tbody id="overviewRoomRows"></tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="panel loans-panel">
+              <div class="panel-header"><h2>Phương tiện trong danh mục</h2><button class="link-button" data-toast="Đã mở danh sách phương tiện">Xem tất cả</button></div>
+              <div class="loan-list" id="overviewAssetRows"></div>
+            </article>
+          </section>
+
+        </div>
+
+        <div class="content-wrap view-hidden" id="roomsView">
+          <section class="metrics-grid room-metrics-grid" aria-label="Chỉ số phòng thực hành">
+            <article class="metric-card blue">
+              <div class="metric-icon room-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M10 42V9a2 2 0 0 1 2-2h21a2 2 0 0 1 2 2v33M5 42h38M18 42V31h9v11M17 15h3m7 0h3m-13 8h3m7 0h3" /></svg>
+              </div>
+              <div class="metric-copy"><span>TỔNG SỐ PHÒNG</span><strong id="roomMetricTotal">0</strong><small>Phòng</small></div>
+            </article>
+            <article class="metric-card green">
+              <div class="metric-icon room-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="33" rx="3" /><path d="M14 5v10M34 5v10M6 19h36M14 27h4m6 0h4m6 0h1M14 35h4m6 0h4m6 0h1" /></svg>
+              </div>
+              <div class="metric-copy"><span>ĐANG SỬ DỤNG</span><strong id="roomMetricInUse">0</strong><small>Phòng</small></div>
+            </article>
+            <article class="metric-card orange">
+              <div class="metric-icon room-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" /><path d="M24 13v12l8 5" /></svg>
+              </div>
+              <div class="metric-copy"><span>BẢO TRÌ</span><strong id="roomMetricMaintenance">0</strong><small>Phòng</small></div>
+            </article>
+            <article class="metric-card red">
+              <div class="metric-icon room-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" /><path d="M11 11l26 26" /></svg>
+              </div>
+              <div class="metric-copy"><span>NGỪNG HOẠT ĐỘNG</span><strong id="roomMetricInactive">0</strong><small>Phòng</small></div>
+            </article>
+            <article class="metric-card mint">
+              <div class="metric-icon room-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M24 5l16 6v12c0 10-6.5 17-16 21-9.5-4-16-11-16-21V11l16-6z" /><path d="M16 24l5 5 11-11" /></svg>
+              </div>
+              <div class="metric-copy"><span>SỨC CHỨA TỔNG</span><strong id="roomMetricCapacity">0</strong><small>Chỗ ngồi</small></div>
+            </article>
+          </section>
+
+          <section class="rooms-toolbar panel" aria-label="Bộ lọc phòng thực hành">
+            <div class="room-filters">
+              <label class="search-field"><input id="roomSearch" type="search" placeholder="Tìm kiếm phòng..." /><span aria-hidden="true">⌕</span></label>
+              <select id="roomStatus" aria-label="Lọc theo tình trạng phòng"><option>Tình trạng: Tất cả</option><option>Tốt</option><option>Đang bảo trì</option><option>Ngừng hoạt động</option></select>
+              <select id="roomBuilding" aria-label="Lọc theo cơ sở"><option>Cơ sở: Tất cả</option><option>CS155</option><option>CS200</option></select>
+            </div>
+            <div class="room-actions">
+              <button class="secondary-button" id="refreshRooms"><span aria-hidden="true">⟳</span> Làm mới</button>
+              <button class="primary-button" id="addRoom"><span aria-hidden="true">＋</span> Thêm phòng</button>
+            </div>
+          </section>
+
+          <section class="panel room-table-panel">
+            <div class="table-scroll">
+              <table class="rooms-table">
+                <thead><tr><th>STT</th><th>Phòng thực hành</th><th>Công năng</th><th>Sức chứa</th><th>Tình trạng</th><th>Thao tác</th></tr></thead>
+                <tbody id="roomsTableBody"></tbody>
+              </table>
+            </div>
+            <div class="room-pagination" id="roomPagination" hidden></div>
+          </section>
+        </div>
+
+        <div class="content-wrap view-hidden" id="equipmentView">
+          <section class="metrics-grid equipment-metrics-grid" aria-label="Chỉ số phương tiện">
+            <article class="metric-card blue">
+              <div class="metric-icon equipment-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><rect x="8" y="8" width="12" height="12" rx="2" /><rect x="28" y="8" width="12" height="12" rx="2" /><rect x="8" y="28" width="12" height="12" rx="2" /><rect x="28" y="28" width="12" height="12" rx="2" /></svg>
+              </div>
+              <div class="metric-copy"><span>TỔNG SỐ THIẾT BỊ</span><strong id="equipmentMetricTotal">0</strong><small>Thiết bị</small></div>
+            </article>
+            <article class="metric-card green">
+              <div class="metric-icon equipment-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" /><path d="m15 24 6 6 13-15" /></svg>
+              </div>
+              <div class="metric-copy"><span>ĐANG SỬ DỤNG</span><strong id="equipmentMetricBorrowed">0</strong><small>Thiết bị</small></div>
+            </article>
+            <article class="metric-card orange">
+              <div class="metric-icon equipment-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M16 31c-4-3-6-7-6-12a14 14 0 0 1 28 0c0 5-2 9-6 12-2 2-3 4-3 7H19c0-3-1-5-3-7zM19 42h10M24 1v4M7 8l4 3M41 8l-4 3M3 22h5m32 0h5" /></svg>
+              </div>
+              <div class="metric-copy"><span>SẴN SÀNG</span><strong id="equipmentMetricAvailable">0</strong><small>Thiết bị</small></div>
+            </article>
+            <article class="metric-card red">
+              <div class="metric-icon equipment-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M24 5l16 6v12c0 10-6.5 17-16 21-9.5-4-16-11-16-21V11l16-6zM24 15v13" /><circle cx="24" cy="34" r="1.2" /></svg>
+              </div>
+              <div class="metric-copy"><span>BẢO TRÌ</span><strong id="equipmentMetricMaintenance">0</strong><small>Thiết bị</small></div>
+            </article>
+            <article class="metric-card gray">
+              <div class="metric-icon equipment-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M8 13h32v9H8zM11 22h26v22H11zM18 29h12" /></svg>
+              </div>
+              <div class="metric-copy"><span>HỎNG</span><strong id="equipmentMetricBroken">0</strong><small>Thiết bị</small></div>
+            </article>
+          </section>
+
+          <section class="rooms-toolbar equipment-toolbar panel" aria-label="Bộ lọc phương tiện">
+            <div class="room-filters equipment-filters">
+              <label class="search-field"><input id="equipmentSearch" type="search" placeholder="Tìm kiếm thiết bị..." /><span aria-hidden="true">⌕</span></label>
+              <select id="equipmentCategory" aria-label="Lọc theo loại phương tiện"><option>Loại: Tất cả</option></select>
+              <select id="equipmentRoom" aria-label="Lọc theo phòng"><option>Phòng: Tất cả</option></select>
+              <select id="equipmentStatus" aria-label="Lọc theo tình trạng"><option>Tình trạng: Tất cả</option><option>Tốt</option></select>
+            </div>
+            <div class="room-actions">
+              <button class="secondary-button" id="refreshEquipment"><span aria-hidden="true">⟳</span> Làm mới</button>
+              <button class="primary-button" id="addEquipment"><span aria-hidden="true">＋</span> Thêm phương tiện</button>
+            </div>
+          </section>
+
+          <section class="panel room-table-panel equipment-table-panel">
+            <div class="table-scroll equipment-table-scroll">
+              <table class="equipment-table">
+                <thead><tr><th>Phương tiện</th><th>Model/Hãng sản xuất/Xuất xứ</th><th>Phòng</th><th>Tổng</th><th>Mượn</th><th>Còn lại</th><th>Tình trạng</th><th>Thao tác</th></tr></thead>
+                <tbody id="equipmentTableBody"></tbody>
+              </table>
+            </div>
+            <div class="table-footer equipment-table-footer"><span id="equipmentResultCount">Hiển thị 0 trong tổng số 0 phương tiện</span></div>
+          </section>
+        </div>
+
+        <div class="content-wrap view-hidden" id="borrowView">
+          <section class="panel borrow-panel">
+            <div class="borrow-panel-top">
+              <button class="primary-button borrow-create" id="createBorrow" type="button"><span aria-hidden="true">＋</span> Tạo phiếu mượn</button>
+            </div>
+
+            <div class="borrow-status-filters" role="group" aria-label="Lọc theo trạng thái">
+              <button class="borrow-status-filter active" type="button" data-status-filter="all">Tất cả</button>
+              <button class="borrow-status-filter" type="button" data-status-filter="approval">Duyệt cho mượn</button>
+              <button class="borrow-status-filter" type="button" data-status-filter="borrowing">Đang mượn</button>
+              <button class="borrow-status-filter" type="button" data-status-filter="overdue">Quá hạn</button>
+              <button class="borrow-status-filter" type="button" data-status-filter="returned">Đã trả</button>
+              <button class="borrow-status-filter" type="button" data-status-filter="rejected">Đã từ chối</button>
+            </div>
+
+            <div class="table-scroll borrow-table-scroll" tabindex="0" aria-label="Danh sách phiếu mượn - trả">
+              <table class="borrow-table">
+                <thead><tr><th>Mã phiếu</th><th>Người mượn</th><th>Mục đích mượn</th><th>Ngày mượn</th><th>Ngày trả dự kiến</th><th>Trạng thái</th><th>Thao tác</th></tr></thead>
+                <tbody id="borrowTableBody"><tr><td colspan="7" class="source-empty-state">Đang tải luồng mượn - trả...</td></tr></tbody>
+              </table>
+            </div>
+            <div class="borrow-footer"><span id="borrowResultCount">Đang tải danh sách phiếu...</span></div>
+          </section>
+        </div>
+
+        <div class="content-wrap view-hidden" id="createBorrowView">
+          <div class="workflow-back-row">
+            <button class="workflow-back-button" type="button" data-workflow-action="back" aria-label="Quay l&#7841;i giao di&#7879;n tr&#432;&#7899;c" title="Quay l&#7841;i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7" /></svg><span>Quay l&#7841;i</span></button>
+          </div>
+          <section class="panel borrow-form-panel">
+            <form id="borrowForm">
+              <div class="borrow-form-grid">
+                <div class="borrow-form-column">
+                  <label class="form-field">
+                    <span>Người mượn <b>*</b></span>
+                    <select id="borrowerName" class="form-control" required></select>
+                  </label>
+                  <label class="form-field">
+                    <span>Phòng thực hành <b>*</b></span>
+                    <select id="borrowRoom" class="form-control" required>
+                      <option value="">Chọn phòng thực hành</option>
+                    </select>
+                  </label>
+                  <label class="form-field">
+                    <span>Mục đích mượn <b>*</b></span>
+                    <input id="borrowPurpose" class="form-control" type="text" maxlength="200" autocomplete="off" placeholder="Nhập mục đích mượn..." required />
+                  </label>
+                </div>
+                <div class="borrow-form-column">
+                  <div class="borrow-date-row">
+                    <label class="form-field">
+                      <span>Ngày mượn <b>*</b></span>
+                      <input id="borrowDate" class="form-control native-date-input" type="date" value="2025-05-14" required />
+                    </label>
+                    <label class="form-field">
+                      <span>Ngày trả dự kiến <b>*</b></span>
+                      <input id="expectedReturnDate" class="form-control native-date-input" type="date" value="2025-05-16" required />
+                    </label>
+                  </div>
+                  <label class="form-field form-field-note">
+                    <span>Ghi chú</span>
+                    <textarea id="borrowNote" class="form-control" rows="3" placeholder="Nhập ghi chú..."></textarea>
+                  </label>
+                </div>
+              </div>
+
+              <section class="borrow-equipment-section" aria-labelledby="borrowEquipmentHeading">
+                <div class="borrow-section-heading"><h2 id="borrowEquipmentHeading">Phương tiện <span aria-hidden="true">*</span></h2></div>
+                <div class="borrow-equipment-picker" id="borrowEquipmentPicker">
+                  <button class="borrow-equipment-trigger" id="borrowEquipmentToggle" type="button" aria-haspopup="dialog" aria-controls="borrowEquipmentMenu" aria-expanded="false" aria-required="true" aria-describedby="borrowEquipmentError">
+                    <span class="borrow-equipment-trigger-copy">
+                      <strong>Chọn phương tiện</strong>
+                      <small id="borrowEquipmentSummary">Chọn phương tiện và nhập số lượng</small>
+                    </span>
+                    <span class="borrow-equipment-count" id="borrowEquipmentCount">0 đã chọn</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 9 5 5 5-5" /></svg>
+                  </button>
+                  <div class="borrow-equipment-menu" id="borrowEquipmentMenu" role="dialog" aria-label="Chọn phương tiện" hidden>
+                    <label class="borrow-equipment-search">
+                      <span class="sr-only">Tìm phương tiện</span>
+                      <input id="borrowEquipmentSearch" type="search" placeholder="Tìm theo tên, model hoặc phòng..." autocomplete="off" />
+                      <span aria-hidden="true">⌕</span>
+                    </label>
+                    <div class="borrow-equipment-options" id="borrowEquipmentOptions" role="group" aria-label="Danh sách phương tiện"></div>
+                    <div class="borrow-equipment-menu-footer">
+                      <span id="borrowEquipmentPickerSummary" aria-live="polite">Đã chọn 0 loại · 0 thiết bị</span>
+                      <button id="closeBorrowEquipmentPicker" type="button">Đóng</button>
+                    </div>
+                  </div>
+                  <p class="borrow-equipment-error" id="borrowEquipmentError" role="alert" hidden></p>
+                </div>
+              </section>
+
+              <div class="borrow-form-actions">
+                <button class="form-cancel" id="cancelBorrow" type="button">Hủy</button>
+                <button class="primary-button form-submit" type="submit">Gửi phiếu</button>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <div class="content-wrap view-hidden" id="approvalView">
+          <div class="workflow-back-row">
+            <button class="workflow-back-button" type="button" data-workflow-action="back" aria-label="Quay l&#7841;i giao di&#7879;n tr&#432;&#7899;c" title="Quay l&#7841;i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7" /></svg><span>Quay l&#7841;i</span></button>
+          </div>
+          <section class="panel approval-summary-panel">
+            <article class="approval-info">
+              <h2>Thông tin phiếu</h2>
+              <dl class="approval-details">
+                <div><dt>Mã phiếu</dt><dd><button class="workflow-code" type="button" data-workflow-action="details">PM-2025-0042</button></dd></div>
+                <div><dt>Người mượn</dt><dd>Trần Văn B</dd></div>
+                <div><dt>Mục đích</dt><dd>Thực hành hiện trường vụ án</dd></div>
+                <div><dt>Ngày mượn</dt><dd>14/05/2025</dd></div>
+                <div><dt>Ngày trả dự kiến</dt><dd>16/05/2025</dd></div>
+              </dl>
+            </article>
+            <article class="approval-equipment">
+              <h2>Danh sách thiết bị</h2>
+              <div class="approval-equipment-table-wrap">
+                <table class="approval-equipment-table">
+                  <thead><tr><th>Thiết bị</th><th>SL</th></tr></thead>
+                  <tbody>
+                    <tr><td>Bộ dụng cụ lấy vân tay</td><td>1</td></tr>
+                    <tr><td>Máy ảnh kỹ thuật số</td><td>1</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+          </section>
+
+          <section class="panel approval-opinion-panel">
+            <form id="approvalForm">
+              <h2>Ý kiến duyệt</h2>
+              <fieldset class="approval-options">
+                <legend class="sr-only">Chọn ý kiến duyệt</legend>
+                <label><input type="radio" name="approvalDecision" value="approve" /> <span>Đồng ý</span></label>
+                <label><input type="radio" name="approvalDecision" value="reject" /> <span>Không đồng ý</span></label>
+                <label><input type="radio" name="approvalDecision" value="leader" /> <span>Xin ý kiến lãnh đạo</span></label>
+              </fieldset>
+              <label class="form-field approval-leader-field" id="approvalLeaderField">
+                <span>Lãnh đạo xin ý kiến <b>*</b></span>
+                <select class="form-control" id="approvalLeader" required>
+                  <option>Nguyễn Văn C (Trưởng khoa)</option>
+                  <option>Trần Thị D (Phó Trưởng khoa)</option>
+                </select>
+              </label>
+              <label class="form-field approval-note-field">
+                <span>Ghi chú (nếu có)</span>
+                <textarea class="form-control" id="approvalNote" rows="3" placeholder="Nhập ghi chú..."></textarea>
+              </label>
+              <div class="approval-actions">
+                <button class="form-cancel" id="cancelApproval" type="button">Hủy</button>
+                <button class="primary-button approval-submit" type="submit">Xác nhận duyệt</button>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <div class="content-wrap view-hidden" id="handoffView">
+          <div class="workflow-back-row">
+            <button class="workflow-back-button" type="button" data-workflow-action="back" aria-label="Quay l&#7841;i giao di&#7879;n tr&#432;&#7899;c" title="Quay l&#7841;i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7" /></svg><span>Quay l&#7841;i</span></button>
+          </div>
+          <section class="panel handoff-stepper-panel">
+            <div class="handoff-step active"><span>1</span><strong>Giao phòng và phương tiện</strong></div>
+            <div class="handoff-step-line"></div>
+            <div class="handoff-step" id="handoffConfirmStep"><span>2</span><strong>Xác nhận</strong></div>
+          </section>
+
+          <section class="panel handoff-summary-panel">
+            <article class="handoff-info">
+              <h2>Thông tin phiếu</h2>
+              <dl class="handoff-details">
+                <div><dt>Mã phiếu</dt><dd><button class="workflow-code" id="handoffCode" type="button" data-workflow-action="details">PM-2025-0042</button></dd></div>
+                <div><dt>Người nhận <b>*</b></dt><dd><select class="form-control compact-control" id="handoffRecipient" required></select></dd></div>
+                <div><dt>Phòng thực hành <b>*</b></dt><dd><select class="form-control compact-control" id="handoffRoom" required></select></dd></div>
+                <div><dt>Ngày giao <b>*</b></dt><dd><input class="form-control compact-control native-date-input" id="handoffDate" type="date" value="2025-05-14" required /></dd></div>
+                <div><dt>Giờ giao</dt><dd><span class="control-with-icon"><input class="form-control compact-control" id="handoffTime" value="10:45" /><span class="field-icon clock-field-icon" aria-hidden="true"></span></span></dd></div>
+              </dl>
+            </article>
+            <article class="handoff-equipment">
+              <h2>Phương tiện giao</h2>
+              <div class="handoff-equipment-table-wrap">
+                <table class="handoff-equipment-table">
+                  <thead><tr><th>Phương tiện</th><th>SL</th><th>Tình trạng</th><th>Ảnh</th></tr></thead>
+                  <tbody id="handoffEquipmentBody">
+                    <tr><td>Bộ dụng cụ lấy vân tay</td><td>1</td><td><select class="condition-select" aria-label="Tình trạng Bộ dụng cụ lấy vân tay"><option>Tốt</option><option>Khá</option><option>Cần kiểm tra</option></select></td><td><div class="flow-photo-control"><button class="photo-button" type="button" data-workflow-action="photo" title="Tải ảnh Bộ dụng cụ lấy vân tay" aria-label="Tải ảnh Bộ dụng cụ lấy vân tay"><span class="flow-photo-upload-icon" aria-hidden="true">↑</span></button><input class="flow-photo-input" type="file" accept="image/jpeg,image/png,image/webp" tabindex="-1" aria-hidden="true" hidden></div></td></tr>
+                    <tr><td>Máy ảnh kỹ thuật số</td><td>1</td><td><select class="condition-select" aria-label="Tình trạng Máy ảnh kỹ thuật số"><option>Tốt</option><option>Khá</option><option>Cần kiểm tra</option></select></td><td><div class="flow-photo-control"><button class="photo-button" type="button" data-workflow-action="photo" title="Tải ảnh Máy ảnh kỹ thuật số" aria-label="Tải ảnh Máy ảnh kỹ thuật số"><span class="flow-photo-upload-icon" aria-hidden="true">↑</span></button><input class="flow-photo-input" type="file" accept="image/jpeg,image/png,image/webp" tabindex="-1" aria-hidden="true" hidden></div></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <button class="add-handoff-equipment" id="addHandoffEquipment" type="button"><span aria-hidden="true">＋</span> Thêm phương tiện</button>
+            </article>
+          </section>
+
+          <section class="panel handoff-bottom-panel">
+            <label class="form-field handoff-note-field"><span>Ghi chú (nếu có)</span><textarea class="form-control" id="handoffNote" rows="3" placeholder="Nhập ghi chú..."></textarea></label>
+            <div class="handoff-confirm-box">
+              <h2>Ghi nhận giao</h2>
+              <div class="handoff-mini-stepper"><span class="mini-step active">1</span><strong>Giao phòng và phương tiện</strong><i></i><span class="mini-step" id="handoffMiniConfirm">2</span><strong>Xác nhận</strong></div>
+              <button class="primary-button handoff-submit" id="confirmHandoff" type="button">Xác nhận giao</button>
+            </div>
+          </section>
+        </div>
+
+        <div class="content-wrap view-hidden" id="returnView">
+          <div class="workflow-back-row">
+            <button class="workflow-back-button" type="button" data-workflow-action="back" aria-label="Quay l&#7841;i giao di&#7879;n tr&#432;&#7899;c" title="Quay l&#7841;i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7" /></svg><span>Quay l&#7841;i</span></button>
+          </div>
+          <section class="panel return-stepper-panel">
+            <div class="return-step active"><span>1</span><strong>Trả phòng và phương tiện</strong></div>
+            <div class="return-step-line"></div>
+            <div class="return-step" id="returnConfirmStep"><span>2</span><strong>Xác nhận</strong></div>
+          </section>
+
+          <section class="panel return-summary-panel">
+            <article class="return-info">
+              <h2>Thông tin phiếu</h2>
+              <dl class="return-details">
+                <div><dt>Mã phiếu</dt><dd><button class="workflow-code" id="returnCode" type="button" data-workflow-action="details">PM-2025-0040</button></dd></div>
+                <div><dt>Người trả <b>*</b></dt><dd><select class="form-control compact-control" id="returnBorrower" required></select></dd></div>
+                <div><dt>Phòng thực hành <b>*</b></dt><dd><select class="form-control compact-control" id="returnRoom" required></select></dd></div>
+                <div><dt>Ngày trả <b>*</b></dt><dd><input class="form-control compact-control native-date-input" id="returnDate" type="date" value="2025-05-10" required /></dd></div>
+                <div><dt>Giờ trả</dt><dd><span class="control-with-icon"><input class="form-control compact-control" id="returnTime" value="16:20" /><span class="field-icon clock-field-icon" aria-hidden="true"></span></span></dd></div>
+              </dl>
+            </article>
+            <article class="return-equipment">
+              <h2>Phương tiện trả</h2>
+              <div class="return-equipment-table-wrap">
+                <table class="return-equipment-table">
+                  <thead><tr><th>Phương tiện</th><th>SL</th><th>Ảnh</th></tr></thead>
+                  <tbody id="returnEquipmentBody">
+                    <tr><td>Bộ dụng cụ lấy vân tay</td><td>1</td><td><div class="flow-photo-control"><button class="photo-button" type="button" data-workflow-action="photo" title="Tải ảnh Bộ dụng cụ lấy vân tay khi trả" aria-label="Tải ảnh Bộ dụng cụ lấy vân tay khi trả"><span class="flow-photo-upload-icon" aria-hidden="true">↑</span></button><input class="flow-photo-input" type="file" accept="image/jpeg,image/png,image/webp" tabindex="-1" aria-hidden="true" hidden></div></td></tr>
+                    <tr><td>Máy ảnh kỹ thuật số</td><td>1</td><td><div class="flow-photo-control"><button class="photo-button" type="button" data-workflow-action="photo" title="Tải ảnh Máy ảnh kỹ thuật số khi trả" aria-label="Tải ảnh Máy ảnh kỹ thuật số khi trả"><span class="flow-photo-upload-icon" aria-hidden="true">↑</span></button><input class="flow-photo-input" type="file" accept="image/jpeg,image/png,image/webp" tabindex="-1" aria-hidden="true" hidden></div></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <button class="add-return-equipment" id="addReturnEquipment" type="button"><span aria-hidden="true">＋</span> Thêm phương tiện</button>
+            </article>
+          </section>
+
+          <section class="panel return-bottom-panel">
+            <div class="return-manager-notes" id="returnManagerNotes" hidden>
+              <label class="form-field return-note-field"><span>CBQL kiểm tra, ghi nhận</span><textarea class="form-control" id="returnManagerNote" rows="3" placeholder="Nhập kết quả kiểm tra..."></textarea></label>
+              <label class="form-field return-note-field"><span>Ghi chú</span><textarea class="form-control" id="returnGeneralNote" rows="3" placeholder="Nhập ghi chú..."></textarea></label>
+            </div>
+            <label class="form-field return-note-field" id="returnTeacherNoteField"><span id="returnNoteLabel">GV ghi nhận tình trạng (nếu có)</span><textarea class="form-control" id="returnNote" rows="3" placeholder="Nhập tình trạng phương tiện..."></textarea></label>
+            <div class="return-actions"><button class="form-cancel" id="cancelReturn" type="button">Hủy</button><button class="return-submit" id="confirmReturn" type="button">Xác nhận trả</button></div>
+          </section>
+        </div>
+
+        <div class="content-wrap view-hidden" id="reportsView">
+          <section class="metrics-grid report-metrics-grid" aria-label="Chỉ số thống kê báo cáo">
+            <article class="metric-card report-blue">
+              <div class="metric-icon report-kpi-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M11 5h22a3 3 0 0 1 3 3v32a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3zM15 14h13M15 21h10M15 28h8" /><rect x="27" y="29" width="13" height="14" rx="2" /><path d="M31 34h5m-5 4h5" /></svg></div>
+              <div class="metric-copy"><span>TỔNG SỐ PHIẾU MƯỢN</span><strong id="reportMetricBorrowForms">0</strong><small class="metric-trend" id="reportMetricBorrowContext">Theo hồ sơ thực tế</small></div>
+            </article>
+            <article class="metric-card report-green">
+              <div class="metric-icon report-kpi-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 17h31M33 10l7 7-7 7M40 31H9m7 7l-7-7 7-7" /></svg></div>
+              <div class="metric-copy"><span>TỔNG SỐ PHIẾU TRẢ</span><strong id="reportMetricReturnedForms">0</strong><small class="metric-trend" id="reportMetricReturnContext">Phiếu đã xác nhận trả</small></div>
+            </article>
+            <article class="metric-card report-orange">
+              <div class="metric-icon report-kpi-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M29 8a11 11 0 0 0-12 14L6 33a5 5 0 0 0 7 7l11-11A11 11 0 0 0 38 16l-7 7-6-1-1-6 7-7a11 11 0 0 0-2-1z" /></svg></div>
+              <div class="metric-copy"><span>THIẾT BỊ HƯ HỎNG</span><strong id="reportMetricBroken">0</strong><small class="metric-trend negative" id="reportMetricMaintenanceContext">Bảo trì: 0 thiết bị</small></div>
+            </article>
+            <article class="metric-card report-purple">
+              <div class="metric-icon report-kpi-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M12 6h24v37L24 34 12 43V6z" /></svg></div>
+              <div class="metric-copy"><span>THIẾT BỊ ĐANG MƯỢN</span><strong id="reportMetricBorrowed">0</strong><small class="metric-trend negative" id="reportMetricOverdueContext">Quá hạn: 0 thiết bị</small></div>
+            </article>
+            <article class="metric-card report-cyan">
+              <div class="metric-icon report-kpi-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="9" y="8" width="30" height="36" rx="3" /><path d="M18 8V5h12v3M17 18h14M17 25h14M17 32h14M17 39h9" /></svg></div>
+              <div class="metric-copy"><span>TỔNG SỐ THIẾT BỊ</span><strong id="reportMetricTotal">0</strong><small class="split-trend"><span>Hoạt động: <b id="reportMetricOperational">0</b></span><i aria-hidden="true"></i><span>Sẵn sàng: <em id="reportMetricAvailable">0</em></span></small></div>
+            </article>
+          </section>
+
+          <section class="report-filter-panel panel">
+            <div class="report-filter-grid">
+              <div class="report-date-range"><span>Từ ngày - Đến ngày</span><div class="report-date-range-fields"><label><span class="sr-only">Từ ngày</span><input id="reportStartDate" class="form-control native-date-input" type="date" /></label><label><span class="sr-only">Đến ngày</span><input id="reportEndDate" class="form-control native-date-input" type="date" /></label></div></div>
+              <label><span>Phòng thực hành</span><select id="reportRoom"><option>Tất cả</option></select></label>
+              <label><span>Phương tiện</span><select id="reportEquipment"><option>Tất cả</option></select></label>
+              <label><span>Trạng thái</span><select id="reportStatus"><option>Tất cả</option><option>Đã trả</option></select></label>
+              <label class="report-search"><span class="sr-only">Tìm kiếm</span><span class="search-field"><input id="reportSearch" type="search" placeholder="Tìm kiếm mã phiếu, người mượn..." /><b aria-hidden="true">⌕</b></span></label>
+              <div class="report-export-wrap">
+                <button class="report-export" id="exportReport" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="reportExportMenu"><span aria-hidden="true">▣</span> Xuất báo cáo</button>
+                <div class="report-export-menu" id="reportExportMenu" role="menu" hidden>
+                  <button type="button" role="menuitem" data-export-report="history"><span aria-hidden="true">▤</span> Thống kê lịch sử mượn trả</button>
+                  <button type="button" role="menuitem" data-export-report="equipment"><span aria-hidden="true">▦</span> Thống kê phương tiện</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel report-table-panel">
+            <div class="report-table-heading"><h2>Lịch sử mượn trả</h2></div>
+            <div class="table-scroll report-history-scroll" tabindex="0" aria-label="Danh sách lịch sử mượn trả">
+              <table class="report-table">
+                <thead><tr><th>Mã phiếu</th><th>Người trả</th><th>Phương tiện</th><th>Số lượng</th><th>Ngày mượn</th><th>Ngày trả</th><th>GV ghi nhận tình trạng</th><th>CBQL kiểm tra, ghi nhận</th><th>Ghi chú</th></tr></thead>
+                <tbody id="reportTableBody"><tr><td colspan="9" class="source-empty-state">Đang tải lịch sử mượn trả...</td></tr></tbody>
+              </table>
+            </div>
+            <div class="report-footer"><span id="reportResultCount" aria-live="polite">Đang tải dữ liệu...</span></div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <dialog class="equipment-dialog" id="equipmentDialog" aria-labelledby="equipmentDialogTitle">
+      <form id="equipmentEditForm">
+        <div class="equipment-dialog-header">
+          <div><span>PHƯƠNG TIỆN</span><h2 id="equipmentDialogTitle">Cập nhật thông tin</h2></div>
+          <button class="equipment-dialog-close" id="closeEquipmentDialog" type="button" aria-label="Đóng cửa sổ" title="Đóng">×</button>
+        </div>
+        <div class="equipment-dialog-grid" id="equipmentDialogGrid">
+          <label class="equipment-dialog-field equipment-dialog-wide" id="equipmentNameField"><span>Phương tiện</span><input class="form-control" id="equipmentEditName" maxlength="300" required /></label>
+          <label class="equipment-dialog-field" id="equipmentIdField"><span>Mã phương tiện</span><input class="form-control" id="equipmentEditId" readonly /></label>
+          <label class="equipment-dialog-field equipment-dialog-wide" id="equipmentModelField"><span>Model/Hãng sản xuất/Xuất xứ</span><textarea class="form-control" id="equipmentEditModel" rows="3" maxlength="500" required></textarea></label>
+          <label class="equipment-dialog-field" id="equipmentRoomField"><span>Phòng</span><select class="form-control" id="equipmentEditRoom" required></select></label>
+          <label class="equipment-dialog-field" id="equipmentQuantityField"><span>Tổng</span><input class="form-control" id="equipmentEditQuantity" type="number" min="1" max="100000" step="1" required /></label>
+          <label class="equipment-dialog-field" id="equipmentStatusField"><span>Tình trạng</span><select class="form-control" id="equipmentEditStatus" required><option>Tốt</option><option>Hư hỏng</option><option>Bảo trì</option><option>Sửa chữa</option><option>Thanh lý</option></select></label>
+          <label class="equipment-dialog-field equipment-dialog-wide" id="equipmentNoteField"><span>Ghi chú hư hỏng, bảo trì, sửa chữa hoặc thanh lý</span><textarea class="form-control" id="equipmentEditNote" rows="4" maxlength="2000" placeholder="Nhập nội dung ghi nhận..."></textarea></label>
+        </div>
+        <div class="equipment-dialog-actions">
+          <button class="form-cancel" id="cancelEquipmentEdit" type="button">Hủy</button>
+          <button class="primary-button equipment-save-button" id="equipmentSubmitButton" type="submit">Lưu thay đổi</button>
+        </div>
+      </form>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="deploy-config.js"></script>
+    <script src="source-data.js"></script>
+    <script src="supabase-auth.js"></script>
+    <script src="app.js"></script>
+    <script src="workflow.js"></script>
+  </body>
+</html>
