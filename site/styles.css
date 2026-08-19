@@ -282,6 +282,8 @@ table { width: 100%; border-collapse: collapse; min-width: 570px; }.usage-panel 
 .status.return-pending { color: #9b6710; background: #fff1d9; }
 .borrow-table .flow-action-button.view:hover { border-color: #b9c7d0; color: #2f465a; background: #f0f4f6; }
 .borrow-table .row-actions .more-action { flex: 0 0 29px; font-size: 17px; }
+.borrow-table .row-actions .workflow-handoff-photo { flex: 0 0 auto; width: auto; min-width: 62px; padding: 0 7px; font-size: 10px; white-space: nowrap; color: #1267d6; border-color: #a8c9f8; background: #f3f8ff; }
+.borrow-table .row-actions .workflow-handoff-photo:hover { color: #075bbf; border-color: #72a9ef; background: #eaf3ff; }
 .borrow-footer { display: flex; align-items: center; justify-content: flex-start; min-height: 30px; padding: 10px 2px 0; color: #607386; font-size: 11px; }
 .borrow-form-panel { padding: 25px 14px 14px; }
 .borrow-form-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 26px; row-gap: 17px; padding: 0 1px 20px; }

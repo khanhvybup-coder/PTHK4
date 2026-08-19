@@ -35,6 +35,7 @@
   let stateInitialized = false;
   let connectionKind = 'syncing';
   let commandInFlight = false;
+  let realtimeReloadQueued = false;
   let workflowOrigin = null;
 
   async function authenticatedHeaders(extra = {}) {
@@ -306,9 +307,13 @@
     });
 
     const unreadCounts = { all: 0, approval: 0, borrowing: 0, overdue: 0, returned: 0, rejected: 0 };
-    unreadNotifications().forEach(({ loan }) => {
+    unreadNotifications().forEach(({ loan, action }) => {
       unreadCounts.all += 1;
-      const filterKey = filterKeyForLoan(loan);
+      const filterKey = action === 'borrower-approved'
+        ? 'approval'
+        : action === 'borrower-rejected'
+          ? 'rejected'
+          : filterKeyForLoan(loan);
       if (Object.prototype.hasOwnProperty.call(unreadCounts, filterKey)) unreadCounts[filterKey] += 1;
     });
 
@@ -359,7 +364,13 @@
       primary = actionButton('return-request', id, '↩', 'Trả phương tiện');
     }
 
-    return `<div class="row-actions">${primary}${details}</div>`;
+    const handoffHasPhoto = ['borrowing', 'return_pending', 'returned'].includes(status)
+      && Array.isArray(loan.handoff?.equipment)
+      && loan.handoff.equipment.some((item) => equipmentImage(item));
+    const photoAction = handoffHasPhoto
+      ? `<button class="more-action workflow-handoff-photo" type="button" data-workflow-action="handoff-photos" data-loan-id="${escapeHtml(id)}" title="Xem ảnh phương tiện đã giao">Ảnh giao</button>`
+      : '';
+    return `<div class="row-actions">${primary}${photoAction}${details}</div>`;
   }
 
   function actionButton(action, id, icon, label) {
@@ -428,7 +439,7 @@
     const online = connectionKind === 'online' && !commandInFlight;
     const authenticated = window.KTHSIsAuthenticated?.() === true;
     document.querySelectorAll('[data-workflow-action]').forEach((button) => {
-      const readOnlyAction = ['details', 'close-audit', 'back', 'view-photo', 'close-photo-viewer'].includes(button.dataset.workflowAction);
+      const readOnlyAction = ['details', 'handoff-photos', 'close-audit', 'back', 'view-photo', 'close-photo-viewer'].includes(button.dataset.workflowAction);
       const locked = !readOnlyAction && (!online || !authenticated);
       button.disabled = locked;
       if (locked) button.title = !online ? 'Tạm khóa khi chưa kết nối máy chủ' : 'Vui lòng nhập mật khẩu để thao tác';
@@ -533,6 +544,60 @@
     }
   }
 
+  function applyCommandResult(result) {
+    if (!result) return;
+    if (result.state) {
+      applyState(result.state);
+      return;
+    }
+
+    const nextState = {
+      ...state,
+      version: Number.isFinite(Number(result.version)) ? Number(result.version) : state.version,
+      updatedAt: result.event?.at || state.updatedAt,
+      loans: [...state.loans],
+      events: [...state.events]
+    };
+    if (result.loan) {
+      const id = loanId(result.loan);
+      const index = nextState.loans.findIndex((item) => loanId(item) === id);
+      if (index >= 0) nextState.loans[index] = result.loan;
+      else nextState.loans.unshift(result.loan);
+    }
+
+    const event = result.event;
+    if (event && !nextState.events.some((item) => item.id && item.id === event.id)) {
+      nextState.events.push(event);
+    }
+
+    const entityType = event?.entityType;
+    const entityId = String(event?.entityId || event?.details?.assetId || event?.details?.roomId || '');
+    const action = event?.details?.action;
+    if (Object.prototype.hasOwnProperty.call(result, 'inventoryItem')) {
+      const inventory = [...(nextState.inventory || [])];
+      const index = inventory.findIndex((item) => String(item.id) === String(result.inventoryItem?.id || entityId));
+      if (result.inventoryItem) {
+        if (index >= 0) inventory[index] = result.inventoryItem;
+        else inventory.unshift(result.inventoryItem);
+      } else if (index >= 0 && action === 'delete') {
+        inventory.splice(index, 1);
+      }
+      nextState.inventory = inventory;
+    }
+    if (Object.prototype.hasOwnProperty.call(result, 'roomItem')) {
+      const rooms = [...(nextState.rooms || [])];
+      const index = rooms.findIndex((item) => String(item.id) === String(result.roomItem?.id || entityId));
+      if (result.roomItem) {
+        if (index >= 0) rooms[index] = result.roomItem;
+        else rooms.push(result.roomItem);
+      } else if (index >= 0 && action === 'delete') {
+        rooms.splice(index, 1);
+      }
+      nextState.rooms = rooms;
+    }
+    applyState(nextState);
+  }
+
   async function sendCommand(type, { loan = null, payload = {}, success = '' } = {}) {
     if (window.KTHSIsAuthenticated && window.KTHSIsAuthenticated() !== true) {
       window.KTHSRequireAuthentication?.();
@@ -549,6 +614,7 @@
       throw new Error('WORKFLOW_BUSY');
     }
     commandInFlight = true;
+    realtimeReloadQueued = false;
     let serverResponded = false;
     let commandFailed = false;
     setConnection('syncing', 'Đang đồng bộ');
@@ -572,8 +638,7 @@
         if (response.status === 409) await loadState({ quiet: true });
         throw new Error(result.message || result.error || `Không thể thực hiện thao tác (${response.status})`);
       }
-      if (result.state) applyState(result.state);
-      else await loadState({ quiet: true });
+      applyCommandResult(result);
       setConnection('online', 'Thời gian thực');
       if (success) notify(success);
       return result;
@@ -586,6 +651,13 @@
       commandInFlight = false;
       updateActionAvailability();
       if (commandFailed) reconcileOpenWorkflowView();
+      if (realtimeReloadQueued) {
+        realtimeReloadQueued = false;
+        // A successful command response already carries the authoritative
+        // state. Only refetch after a failed command, otherwise Realtime would
+        // duplicate every mutation with another full state request/render.
+        if (commandFailed) queueMicrotask(() => loadState({ quiet: true }));
+      }
     }
   }
 
@@ -600,7 +672,13 @@
         setConnection('offline', 'Cần đăng nhập');
         return;
       }
-      realtimeUnsubscribe = window.KTHSAuth.subscribeStateChanges(() => loadState({ quiet: true }));
+      realtimeUnsubscribe = window.KTHSAuth.subscribeStateChanges(() => {
+        if (commandInFlight) {
+          realtimeReloadQueued = true;
+          return;
+        }
+        loadState({ quiet: true });
+      });
       window.KTHSAuth.reconnectRealtime();
       setConnection('online', 'Supabase Realtime');
       loadState({ quiet: true });
@@ -657,6 +735,47 @@
     return '';
   }
 
+  function latestManagerDecisionEvent(loan) {
+    const id = loanId(loan);
+    return [...state.events].reverse().find((event) => {
+      if (eventLoanId(event) !== id) return false;
+      if (event.type !== 'manager_decide' && event.action !== 'manager_decide') return false;
+      const decision = event.details?.decision || event.payload?.decision;
+      return decision === 'approve' || decision === 'reject';
+    }) || null;
+  }
+
+  function notificationEntries() {
+    const entries = actionableLoans().map((loan) => ({
+      loan,
+      key: notificationKey(loan),
+      action: notificationAction(loan)
+    })).filter((item) => item.key);
+
+    // A decision is a durable borrower notification. It must survive the
+    // transition from approved -> handoff/borrowing instead of being tied to
+    // the current operational status of the loan.
+    state.loans.forEach((loan) => {
+      if (borrowerKey(loan) !== actorKey) return;
+      const event = latestManagerDecisionEvent(loan);
+      if (!event) return;
+      const decision = event.details?.decision || event.payload?.decision;
+      const eventStamp = event.sequence ?? event.createdAt ?? event.at ?? event.timestamp ?? '';
+      entries.push({
+        loan,
+        key: `${loanId(loan)}:manager-decision:${eventStamp}:${decision}`,
+        action: decision === 'approve' ? 'borrower-approved' : 'borrower-rejected'
+      });
+    });
+
+    const seen = new Set();
+    return entries.filter((item) => {
+      if (seen.has(item.key)) return false;
+      seen.add(item.key);
+      return true;
+    });
+  }
+
   function notificationLabel(action) {
     return {
       approve: 'Duyệt cho mượn',
@@ -664,7 +783,9 @@
       'leader-opinion': 'Cho ý kiến',
       handoff: 'Xác nhận giao',
       'return-confirm': 'Xác nhận đã trả',
-      'return-request': 'Gửi yêu cầu trả'
+      'return-request': 'Gửi yêu cầu trả',
+      'borrower-approved': 'Phiếu mượn đã được duyệt',
+      'borrower-rejected': 'Phiếu mượn đã bị từ chối'
     }[action] || 'Cần xử lý';
   }
 
@@ -696,17 +817,13 @@
 
   function unreadNotifications() {
     const read = readNotificationKeys();
-    return actionableLoans().map((loan) => ({
-      loan,
-      key: notificationKey(loan),
-      action: notificationAction(loan)
-    })).filter((item) => item.key && !read.has(item.key));
+    return notificationEntries().filter((item) => !read.has(item.key));
   }
 
-  function markNotificationsRead(items = actionableLoans()) {
+  function markNotificationsRead(items = notificationEntries()) {
     const read = readNotificationKeys();
     items.forEach((item) => {
-      const key = typeof item === 'string' ? item : notificationKey(item);
+      const key = typeof item === 'string' ? item : item?.key || notificationKey(item?.loan || item);
       if (key) read.add(key);
     });
     writeNotificationKeys(read);
@@ -1311,8 +1428,19 @@
 
   function detailImage(item) {
     const image = equipmentImage(item);
-    if (!image || !/^\/uploads\/[a-z0-9._-]+$/i.test(image.url)) return '';
-    return `<a class="workflow-ticket-photo" href="${escapeHtml(image.url)}" target="_blank" rel="noopener" title="Mở ảnh phương tiện"><img src="${escapeHtml(image.url)}" alt="Ảnh ${escapeHtml(assetName(itemId(item), item))}"></a>`;
+    if (!image) return '';
+    let imageUrl = '';
+    try {
+      const parsed = new URL(String(image.url), window.location.origin);
+      const sameOriginUpload = parsed.origin === window.location.origin
+        && /^\/uploads\/[a-z0-9._-]+$/i.test(parsed.pathname);
+      const supabaseUpload = /^https:\/\/[a-z0-9-]+\.supabase\.co\/storage\/v1\/object\/public\/kths-uploads\/[a-z0-9._-]+$/i.test(parsed.href);
+      if (!sameOriginUpload && !supabaseUpload) return '';
+      imageUrl = parsed.href;
+    } catch {
+      return '';
+    }
+    return `<a class="workflow-ticket-photo" href="${escapeHtml(imageUrl)}" target="_blank" rel="noopener" title="Mở ảnh phương tiện"><img src="${escapeHtml(imageUrl)}" alt="Ảnh ${escapeHtml(assetName(itemId(item), item))}"></a>`;
   }
 
   function detailEquipment(title, items, { showCondition = false } = {}) {
@@ -1368,7 +1496,7 @@
     const body = dialog.querySelector('.workflow-audit-body');
     const previousScroll = dialog.open ? body?.scrollTop || 0 : 0;
     const pendingNotifications = loan ? [] : unreadNotifications();
-    if (!loan && pendingNotifications.length) markNotificationsRead(pendingNotifications.map((item) => item.loan));
+    if (!loan && pendingNotifications.length) markNotificationsRead(pendingNotifications);
     const notificationLoanIds = new Set(notificationScopeLoans().map((item) => loanId(item)));
     const knownLoan = loan && state.loans.some((item) => loanId(item) === loanId(loan));
     if (loan && !knownLoan) {
@@ -1426,6 +1554,7 @@
     if (action === 'back') return goBackWorkflow();
     const loan = state.loans.find((item) => loanId(item) === button.dataset.loanId);
     if (action === 'details') return loan ? openAudit(loan) : notify('Không tìm thấy thông tin phiếu');
+    if (action === 'handoff-photos') return loan ? openAudit(loan) : notify('Không tìm thấy thông tin phiếu');
     if (action === 'close-audit') {
       const dialog = button.closest('dialog');
       if (dialog) delete dialog.dataset.loanId;
