@@ -681,7 +681,9 @@
       });
       window.KTHSAuth.reconnectRealtime();
       setConnection('online', 'Supabase Realtime');
-      loadState({ quiet: true });
+      // startOnline() already loaded the initial snapshot. Avoid a second
+      // identical request during startup; Realtime will deliver later changes.
+      if (!stateInitialized) loadState({ quiet: true });
       return;
     }
     setConnection('syncing', 'Đang kết nối');
