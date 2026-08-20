@@ -271,14 +271,9 @@ async function route(event) {
     });
   }
 
-  const auth = await resolveAuth(event);
-
-  if (endpoint === 'session') {
-    if (method !== 'GET') throw new ApiError(405, 'METHOD_NOT_ALLOWED', 'Chỉ hỗ trợ GET /api/session.');
-    return json(200, { ok: true, profile: publicProfile(auth.profile) });
-  }
-
   if (endpoint === 'state') {
+    // The application is readable before a user enters a password. Mutating
+    // commands below still resolve and enforce the Supabase session.
     if (!['GET', 'HEAD'].includes(method)) throw new ApiError(405, 'METHOD_NOT_ALLOWED', 'Chỉ hỗ trợ GET /api/state.');
     const requestedVersion = clientStateVersion(event);
     if (requestedVersion != null) {
@@ -300,6 +295,18 @@ async function route(event) {
       : json(200, state, { 'x-kths-version': String(state.version) });
   }
 
+  if (endpoint === 'events') {
+    if (method !== 'GET') throw new ApiError(405, 'METHOD_NOT_ALLOWED', 'Chỉ hỗ trợ GET /api/events.');
+    return json(200, { ok: true, polling: true, state: await ensureState() });
+  }
+
+  const auth = await resolveAuth(event);
+
+  if (endpoint === 'session') {
+    if (method !== 'GET') throw new ApiError(405, 'METHOD_NOT_ALLOWED', 'Chỉ hỗ trợ GET /api/session.');
+    return json(200, { ok: true, profile: publicProfile(auth.profile) });
+  }
+
   if (endpoint === 'commands') {
     if (method !== 'POST') throw new ApiError(405, 'METHOD_NOT_ALLOWED', 'Chỉ hỗ trợ POST /api/commands.');
     const command = parseJsonBody(event);
@@ -319,11 +326,6 @@ async function route(event) {
   if (endpoint === 'uploads') {
     if (method !== 'POST') throw new ApiError(405, 'METHOD_NOT_ALLOWED', 'Chỉ hỗ trợ POST /api/uploads.');
     return json(201, { ok: true, upload: await uploadImage(event) });
-  }
-
-  if (endpoint === 'events') {
-    if (method !== 'GET') throw new ApiError(405, 'METHOD_NOT_ALLOWED', 'Chỉ hỗ trợ GET /api/events.');
-    return json(200, { ok: true, polling: true, state: await ensureState() });
   }
 
   throw new ApiError(404, 'NOT_FOUND', 'Không tìm thấy API được yêu cầu.');
