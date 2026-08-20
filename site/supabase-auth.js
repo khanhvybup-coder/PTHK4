@@ -255,6 +255,7 @@
       return token ? { Authorization: `Bearer ${token}` } : {};
     },
     isRealtimeConnected: () => realtimeSocket?.readyState === WebSocket.OPEN,
+    isRealtimeConnecting: () => [WebSocket.CONNECTING, WebSocket.OPEN].includes(realtimeSocket?.readyState),
     subscribeStateChanges(callback) {
       callbacks.add(callback);
       if (session?.access_token && (!realtimeSocket || realtimeSocket.readyState > WebSocket.OPEN)) connectRealtime();

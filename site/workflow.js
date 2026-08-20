@@ -32,6 +32,7 @@
   let pollTimer = null;
   let loading = false;
   let reloadQueued = false;
+  let stateRefreshTimer = null;
   let stateInitialized = false;
   let connectionKind = 'syncing';
   let commandInFlight = false;
@@ -539,9 +540,17 @@
       loading = false;
       if (reloadQueued) {
         reloadQueued = false;
-        queueMicrotask(() => loadState({ quiet: true }));
+        scheduleStateRefresh({ quiet: true, delay: 80 });
       }
     }
+  }
+
+  function scheduleStateRefresh({ quiet = true, delay = 100 } = {}) {
+    clearTimeout(stateRefreshTimer);
+    stateRefreshTimer = setTimeout(() => {
+      stateRefreshTimer = null;
+      void loadState({ quiet });
+    }, delay);
   }
 
   function applyCommandResult(result) {
@@ -596,6 +605,18 @@
       nextState.rooms = rooms;
     }
     applyState(nextState);
+  }
+
+  function stateSignalVersion(payload) {
+    const candidates = [
+      payload?.data?.record?.version,
+      payload?.data?.new?.version,
+      payload?.record?.version,
+      payload?.new?.version,
+      payload?.version
+    ];
+    const value = candidates.find((candidate) => Number.isInteger(Number(candidate)));
+    return value == null ? null : Number(value);
   }
 
   async function sendCommand(type, { loan = null, payload = {}, success = '' } = {}) {
@@ -672,14 +693,18 @@
         setConnection('offline', 'Cần đăng nhập');
         return;
       }
-      realtimeUnsubscribe = window.KTHSAuth.subscribeStateChanges(() => {
+      realtimeUnsubscribe = window.KTHSAuth.subscribeStateChanges((payload) => {
+        const incomingVersion = stateSignalVersion(payload);
+        if (incomingVersion != null && incomingVersion <= state.version) return;
         if (commandInFlight) {
           realtimeReloadQueued = true;
           return;
         }
-        loadState({ quiet: true });
+        scheduleStateRefresh({ quiet: true, delay: 100 });
       });
-      window.KTHSAuth.reconnectRealtime();
+      if (!window.KTHSAuth.isRealtimeConnected?.() && !window.KTHSAuth.isRealtimeConnecting?.()) {
+        window.KTHSAuth.reconnectRealtime();
+      }
       setConnection('online', 'Supabase Realtime');
       // startOnline() already loaded the initial snapshot. Avoid a second
       // identical request during startup; Realtime will deliver later changes.
@@ -694,7 +719,7 @@
         applyState(next.state || next);
         setConnection('online', 'Thời gian thực');
       } catch {
-        loadState({ quiet: true });
+        scheduleStateRefresh({ quiet: true, delay: 100 });
       }
     };
     eventSource.addEventListener('state', consume);
@@ -1773,7 +1798,7 @@
         : eventSource?.readyState === EventSource.OPEN;
       if (document.visibilityState === 'visible'
         && (!window.KTHSAuth || window.KTHSAuth.isAuthenticated())
-        && !realtimeReady) loadState({ quiet: true });
+        && !realtimeReady) scheduleStateRefresh({ quiet: true, delay: 50 });
     }, 60000);
     window.addEventListener('kths:authchange', () => {
       if (window.KTHSIsAuthenticated?.() === true) startOnline();
@@ -1790,7 +1815,9 @@
         event.detail?.status === 'connected' ? 'Supabase Realtime' : 'Đang kết nối lại');
     });
     document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'visible' && (!window.KTHSAuth || window.KTHSAuth.isAuthenticated())) loadState({ quiet: true });
+      if (document.visibilityState === 'visible' && (!window.KTHSAuth || window.KTHSAuth.isAuthenticated())) {
+        scheduleStateRefresh({ quiet: true, delay: 100 });
+      }
     });
   }
 
@@ -1803,6 +1830,7 @@
       eventSource?.close();
       realtimeUnsubscribe?.();
       clearTimeout(reconnectTimer);
+      clearTimeout(stateRefreshTimer);
       clearInterval(pollTimer);
     }
   };
