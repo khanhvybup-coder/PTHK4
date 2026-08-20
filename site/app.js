@@ -167,6 +167,15 @@ function emitAuthChange() {
   }));
 }
 
+function updateDataGate() {
+  // Business data is readable without a password. Authentication is still
+  // enforced by workflow/inventory actions through isUserAuthenticated().
+  document.body.classList.remove('auth-data-locked');
+  document.body.dataset.authenticated = 'true';
+  const gate = document.getElementById('authDataGate');
+  if (gate) gate.hidden = true;
+}
+
 function focusPasswordInput(key = activeUserKey) {
   const input = document.querySelector(`.profile-password-input[data-password-for="${CSS.escape(key)}"]`);
   input?.focus();
@@ -191,6 +200,7 @@ function updatePasswordUi() {
   renderProfileOptions('topProfileOptions', { passwordOnly: topProfileMenuMode === 'password' });
   renderProfileOptions('sidebarProfileOptions');
   applyInventoryAccess();
+  updateDataGate();
   emitAuthChange();
 }
 
@@ -342,6 +352,7 @@ function setActiveUser(key, { notify = true, skipAuthSignOut = false } = {}) {
   renderProfileOptions('sidebarProfileOptions');
   document.querySelectorAll('.top-profile-menu, #profileMenu').forEach((menu) => { menu.hidden = true; });
   document.querySelectorAll('#topProfileButton, #passwordTopButton, #profileButton').forEach((button) => button.setAttribute('aria-expanded', 'false'));
+  updateDataGate();
   applyRoleAccess({ identityChanged });
   applyInventoryAccess();
   if (document.getElementById('roomsTableBody')?.children.length) {
@@ -799,6 +810,7 @@ function setTopProfileMenuMode(mode = 'users') {
 bindProfileToggle('profileButton', 'profileMenu');
 bindProfileToggle('topProfileButton', 'topProfileMenu');
 bindProfileToggle('passwordTopButton', 'topProfileMenu');
+document.getElementById('authDataGateButton')?.addEventListener('click', requireAuthentication);
 renderProfileOptions('topProfileOptions');
 renderProfileOptions('sidebarProfileOptions');
 setActiveUser(activeUserKey, { notify: false });

@@ -2,7 +2,7 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
     <title>Khoa Kỹ thuật Hình sự | Tổng quan</title>
     <script>
       if (window.location.protocol === 'file:') {
@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-authenticated="true">
     <div class="app-shell">
       <aside class="sidebar" id="appSidebar" aria-label="Thanh điều hướng">
         <div class="brand-block">
@@ -91,6 +91,13 @@
             </div>
           </div>
         </header>
+
+        <section class="auth-data-gate" id="authDataGate" hidden aria-labelledby="authDataGateTitle">
+          <div class="auth-data-gate-icon" aria-hidden="true">&#128274;</div>
+          <h2 id="authDataGateTitle">Xác thực để xem dữ liệu</h2>
+          <p>Nhập mật khẩu của người dùng hiện tại để tải thông tin mượn - trả, phiếu và thống kê.</p>
+          <button class="primary-button auth-data-gate-button" id="authDataGateButton" type="button">Nhập mật khẩu</button>
+        </section>
 
         <div class="content-wrap" id="overviewView">
           <section class="metrics-grid" aria-label="Chỉ số tổng quan">

@@ -505,13 +505,10 @@
     }
     loading = true;
     try {
-      if (window.KTHSAuth) {
-        await window.KTHSAuth.ready();
-        if (!window.KTHSAuth.isAuthenticated()) {
-          setConnection('offline', 'Cần đăng nhập');
-          return;
-        }
-      }
+      // Reading the shared state is public so the application can render its
+      // current data immediately. Authentication is enforced by sendCommand
+      // and the backend for all mutating operations.
+      await window.KTHSAuth?.ready?.();
       const stateUrl = stateInitialized
         ? `${API_STATE}?version=${encodeURIComponent(state.version)}`
         : API_STATE;
@@ -690,7 +687,10 @@
     if (NETLIFY_POLLING && window.KTHSAuth) {
       eventSource = null;
       if (!window.KTHSAuth.isAuthenticated()) {
-        setConnection('offline', 'Cần đăng nhập');
+        // Netlify's polling endpoint is readable without a password. The
+        // regular refresh timer keeps public data current until a user signs
+        // in, at which point Supabase Realtime is enabled.
+        setConnection('online', 'Đồng bộ dữ liệu');
         return;
       }
       realtimeUnsubscribe = window.KTHSAuth.subscribeStateChanges((payload) => {
@@ -1521,7 +1521,6 @@
   function openAudit(loan = null) {
     const dialog = ensureAuditDialog();
     const body = dialog.querySelector('.workflow-audit-body');
-    const previousScroll = dialog.open ? body?.scrollTop || 0 : 0;
     const pendingNotifications = loan ? [] : unreadNotifications();
     if (!loan && pendingNotifications.length) markNotificationsRead(pendingNotifications);
     const notificationLoanIds = new Set(notificationScopeLoans().map((item) => loanId(item)));
@@ -1561,7 +1560,9 @@
     if (loan) dialog.dataset.loanId = loanId(loan);
     else delete dialog.dataset.loanId;
     if (!dialog.open) dialog.showModal();
-    if (body) body.scrollTop = previousScroll;
+    // Always start at the header. Reusing a scrolled ticket dialog used to
+    // leave the close button above the viewport on mobile after tapping the bell.
+    if (body) body.scrollTop = 0;
   }
 
   function ensureAuditDialog() {
@@ -1573,6 +1574,17 @@
     dialog.setAttribute('aria-labelledby', 'workflowAuditTitle');
     dialog.innerHTML = `<header><div><span class="workflow-audit-eyebrow">NHẬT KÝ HỆ THỐNG</span><h2 class="workflow-audit-title" id="workflowAuditTitle">Lịch sử xác nhận</h2></div><button type="button" data-workflow-action="close-audit" aria-label="Đóng">×</button></header><div class="workflow-audit-body"><section class="workflow-ticket-detail" hidden></section><section class="workflow-notification-section" hidden><h3>Thông báo chưa xem</h3><ul class="workflow-notification-list"></ul></section><section class="workflow-audit-section"><h3>Hoạt động gần đây</h3><ol class="workflow-audit-list"></ol></section></div>`;
     document.body.appendChild(dialog);
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog.addEventListener('cancel', (event) => {
+      event.preventDefault();
+      dialog.close();
+    });
+    dialog.addEventListener('close', () => {
+      const body = dialog.querySelector('.workflow-audit-body');
+      if (body) body.scrollTop = 0;
+    });
     return dialog;
   }
 
@@ -1760,7 +1772,7 @@
       .workflow-code{border:0;padding:0;background:transparent;color:#0670ef;font:inherit;font-weight:700;cursor:pointer}
       .workflow-opinion-banner{display:grid;gap:4px;margin:0 0 17px;padding:12px 14px;border-left:3px solid #0c8f67;border-radius:4px;background:#eef9f5;color:#254c41}
       .workflow-opinion-banner strong{font-size:13px}.workflow-opinion-banner span{font-size:12px}
-      .workflow-audit-dialog{width:min(920px,calc(100vw - 32px));max-height:min(820px,calc(100vh - 32px));padding:0;overflow:hidden;border:0;border-radius:7px;color:#183047;box-shadow:0 24px 70px rgba(7,37,47,.25)}
+      .workflow-audit-dialog{width:min(920px,calc(100vw - 32px));max-width:calc(100vw - 32px);max-height:min(820px,calc(100vh - 32px));margin:auto;padding:0;overflow:hidden;border:0;border-radius:7px;color:#183047;box-shadow:0 24px 70px rgba(7,37,47,.25)}
       .workflow-audit-dialog::backdrop{background:rgba(8,31,40,.42)}
       .workflow-audit-dialog header{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #e5ecef;background:#fff}
       .workflow-audit-dialog header span{display:block;margin-bottom:3px;color:#78909d;font-size:10px;font-weight:800}.workflow-audit-dialog h2{margin:0;font-size:20px}.workflow-audit-dialog header button{width:34px;height:34px;border:1px solid #dce5e9;border-radius:4px;background:#fff;font-size:23px;line-height:1;cursor:pointer}
@@ -1769,7 +1781,7 @@
       .workflow-ticket-section{display:grid;gap:9px}.workflow-ticket-section h3,.workflow-ticket-stages h3,.workflow-audit-section>h3{margin:0;color:#20384b;font-size:14px}.workflow-ticket-table-wrap{overflow-x:auto;border:1px solid #e4ebef;border-radius:6px}.workflow-ticket-table{width:100%;min-width:560px;border-collapse:collapse;table-layout:fixed}.workflow-ticket-table th,.workflow-ticket-table td{padding:10px 12px;border-bottom:1px solid #edf1f3;text-align:left;font-size:12px;vertical-align:middle}.workflow-ticket-table th{background:#f5f8f9;color:#2d4658;font-weight:700}.workflow-ticket-table tr:last-child td{border-bottom:0}.workflow-ticket-table th:nth-child(2),.workflow-ticket-table td:nth-child(2){width:54px;text-align:center}.workflow-ticket-table th:nth-child(3),.workflow-ticket-table td:nth-child(3){width:120px}.workflow-ticket-table th:nth-child(4),.workflow-ticket-table td:nth-child(4){width:70px;text-align:center}.workflow-ticket-table td strong{display:block;color:#203a4f}.workflow-ticket-table td small{display:block;margin-top:3px;color:#758795}.workflow-ticket-photo{display:inline-grid;width:38px;height:38px;overflow:hidden;border:1px solid #cddce3;border-radius:4px;background:#f5f8fa}.workflow-ticket-photo img{width:100%;height:100%;object-fit:cover}
       .workflow-ticket-stages{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.workflow-ticket-stages article{padding:14px;border:1px solid #e4ebef;border-radius:6px;background:#fbfcfd}.workflow-ticket-stages dl{display:grid;gap:8px;margin:11px 0 0}.workflow-ticket-stages dl>div{display:grid;grid-template-columns:92px minmax(0,1fr);gap:8px}.workflow-ticket-stages dl>div.wide{grid-template-columns:1fr}.workflow-ticket-stages dt{color:#748795;font-size:11px}.workflow-ticket-stages dd{margin:0;color:#294456;font-size:12px;font-weight:600;overflow-wrap:anywhere}
       .workflow-notification-section{padding:16px 20px 0;border-top:1px solid #e5ecef;background:#fff}.workflow-notification-section h3{margin:0;color:#20384b;font-size:14px}.workflow-notification-list{display:grid;gap:0;margin:8px 0 0;padding:0;list-style:none}.workflow-notification-list li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid #edf1f3}.workflow-notification-list li:last-child{border-bottom:0}.workflow-notification-list li span{color:#27485d;font-size:12px;font-weight:700}.workflow-notification-list li small{color:#728594;font-size:11px;text-align:right}.workflow-audit-section{padding:18px 20px 8px;border-top:1px solid #e5ecef;background:#fbfcfd}.workflow-audit-list{display:grid;gap:0;margin:8px 0 0;padding:0;list-style:none}.workflow-audit-list li{display:grid;grid-template-columns:18px 1fr;gap:10px;padding:14px 0;border-bottom:1px solid #edf1f3}.workflow-audit-list li:last-child{border-bottom:0}.workflow-audit-dot{width:10px;height:10px;margin-top:5px;border-radius:50%;background:#087f67;box-shadow:0 0 0 4px #e3f4ef}.workflow-audit-list div{display:grid;gap:3px}.workflow-audit-list strong{font-size:13px}.workflow-audit-list small{color:#728594;font-size:11px}.workflow-audit-list p{margin:3px 0 0;color:#435d70;font-size:12px}.workflow-empty-audit{display:block!important;color:#718391;text-align:center}
-      @media(max-width:650px){.workflow-audit-dialog{width:calc(100vw - 18px);max-height:calc(100vh - 18px)}.workflow-audit-dialog header{padding:14px}.workflow-audit-dialog h2{font-size:17px}.workflow-audit-body{max-height:calc(100vh - 92px)}.workflow-ticket-detail{gap:14px;padding:14px}.workflow-ticket-facts{grid-template-columns:1fr}.workflow-ticket-facts>div,.workflow-ticket-facts>div.wide{grid-column:1;grid-template-columns:116px minmax(0,1fr);border-right:0!important}.workflow-ticket-table{min-width:480px}.workflow-ticket-stages{grid-template-columns:1fr}.workflow-audit-section{padding:16px 14px 6px}}
+      @media(max-width:650px){.workflow-audit-dialog{width:calc(100vw - 18px);max-width:calc(100vw - 18px);max-height:calc(100dvh - 18px);margin:auto}.workflow-audit-dialog header{padding:14px;position:sticky;top:0}.workflow-audit-dialog h2{font-size:17px}.workflow-audit-body{max-height:calc(100dvh - 92px);overflow-y:auto}.workflow-ticket-detail{gap:14px;padding:14px}.workflow-ticket-facts{grid-template-columns:1fr}.workflow-ticket-facts>div,.workflow-ticket-facts>div.wide{grid-column:1;grid-template-columns:116px minmax(0,1fr);border-right:0!important}.workflow-ticket-table{min-width:0}.workflow-ticket-stages{grid-template-columns:1fr}.workflow-audit-section{padding:16px 14px 6px}}
       .status.return-pending{background:#fff1da;color:#b96800}
     `;
     document.head.appendChild(style);
@@ -1781,32 +1793,29 @@
     updateActualDates();
     updateRoleControls();
     const startOnline = async () => {
-      if (window.KTHSAuth) {
-        await window.KTHSAuth.ready();
-        if (!window.KTHSAuth.isAuthenticated()) {
-          setConnection('offline', 'Cần đăng nhập');
-          return;
-        }
-      }
+      await window.KTHSAuth?.ready?.();
       await loadState();
       connectEvents();
     };
     startOnline();
+    // Before authentication, keep the public read-only snapshot fresh with a
+    // lightweight version check. Authenticated users switch to Supabase
+    // Realtime when available, so this request returns 204 in the usual case.
     pollTimer = setInterval(() => {
       const realtimeReady = NETLIFY_POLLING
         ? window.KTHSAuth?.isRealtimeConnected?.() === true
         : eventSource?.readyState === EventSource.OPEN;
       if (document.visibilityState === 'visible'
-        && (!window.KTHSAuth || window.KTHSAuth.isAuthenticated())
         && !realtimeReady) scheduleStateRefresh({ quiet: true, delay: 50 });
-    }, 60000);
+    }, 10000);
     window.addEventListener('kths:authchange', () => {
       if (window.KTHSIsAuthenticated?.() === true) startOnline();
       else {
         realtimeUnsubscribe?.();
         realtimeUnsubscribe = null;
         eventSource?.close();
-        setConnection('offline', 'Cần đăng nhập');
+        // Keep the public read-only snapshot visible after sign-out.
+        startOnline();
       }
     });
     window.addEventListener('kths:realtime-status', (event) => {
@@ -1815,7 +1824,7 @@
         event.detail?.status === 'connected' ? 'Supabase Realtime' : 'Đang kết nối lại');
     });
     document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'visible' && (!window.KTHSAuth || window.KTHSAuth.isAuthenticated())) {
+      if (document.visibilityState === 'visible') {
         scheduleStateRefresh({ quiet: true, delay: 100 });
       }
     });

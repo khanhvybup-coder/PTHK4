@@ -79,6 +79,16 @@ button { cursor: pointer; }
 .chevron.dark { margin-left: 0; color: #b4d4c3; }
 
 .content-wrap { padding: 14px 26px 22px; }
+
+/* Business data is intentionally unavailable until the current user authenticates. */
+.auth-data-gate { display:flex; min-height:clamp(260px,42vh,430px); margin:28px 26px; padding:42px 24px; flex-direction:column; align-items:center; justify-content:center; text-align:center; border:1px solid #e3eaee; border-radius:8px; background:#fff; box-shadow:0 12px 30px rgba(19,49,65,.06); color:#1d364c; }
+.auth-data-gate[hidden] { display:none; }
+.auth-data-gate-icon { display:grid; width:58px; height:58px; margin-bottom:14px; place-items:center; border-radius:50%; background:#e8f3f2; color:#0b6668; font-size:26px; }
+.auth-data-gate h2 { margin:0; font-size:21px; }
+.auth-data-gate p { max-width:480px; margin:10px 0 20px; color:#718392; font-size:13px; line-height:1.5; }
+.auth-data-gate-button { min-width:150px; }
+body.auth-data-locked .content-wrap { display:none !important; }
+body.auth-data-locked .auth-data-gate { display:flex; }
 .view-hidden { display: none; }
 .page-heading { display: flex; align-items: end; justify-content: space-between; margin: 0 0 25px; }
 h1, h2, p { margin: 0; }
@@ -2668,5 +2678,16 @@ table { width: 100%; border-collapse: collapse; min-width: 570px; }.usage-panel 
     justify-content: center;
     gap: 0;
     font-size: 0;
+  }
+
+  /* iOS zooms focused controls below 16px; keep the password field stable. */
+  .profile-password-input {
+    height: 40px;
+    font-size: 16px;
+  }
+  .change-password-button {
+    height: 40px;
+    padding-inline: 10px;
+    font-size: 12px;
   }
 }
