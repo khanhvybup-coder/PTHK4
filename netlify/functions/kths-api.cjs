@@ -16,6 +16,10 @@ const maxUploadBytes = 5 * 1024 * 1024;
 const uploadBucket = 'kths-uploads';
 const authCache = new Map();
 const authCacheTtlMs = 20000;
+// Warm Netlify instances can safely reuse the last state for a command only
+// when the client supplies the same expected version. The CAS PATCH below is
+// still authoritative across instances and rejects stale writes.
+let stateCache = null;
 const imageTypes = new Map([
   ['image/jpeg', { extension: '.jpg', matches: (buffer) => buffer.length >= 3 && buffer[0] === 0xff && buffer[1] === 0xd8 && buffer[2] === 0xff }],
   ['image/png', { extension: '.png', matches: (buffer) => buffer.length >= 8 && buffer.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a])) }],
@@ -128,6 +132,7 @@ async function readStateRow() {
   if (!Array.isArray(rows) || rows.length === 0) return null;
   const state = validateLoadedState(rows[0].document);
   state.version = Number(rows[0].version);
+  stateCache = state;
   return state;
 }
 
@@ -148,7 +153,11 @@ function clientStateVersion(event) {
   return Number.isInteger(version) && version >= 0 ? version : null;
 }
 
-async function ensureState() {
+async function ensureState({ expectedVersion = null } = {}) {
+  if (Number.isInteger(expectedVersion) && expectedVersion >= 0
+    && stateCache && stateCache.version === expectedVersion) {
+    return stateCache;
+  }
   const existing = await readStateRow();
   if (existing) return existing;
 
@@ -186,8 +195,10 @@ async function persistState(previousVersion, nextState) {
   });
   const rows = await response.json();
   if (!Array.isArray(rows) || rows.length !== 1) {
+    stateCache = null;
     throw new ApiError(409, 'VERSION_CONFLICT', 'Dữ liệu vừa được người khác cập nhật. Hãy thử lại.');
   }
+  stateCache = nextState;
 }
 
 function parseJsonBody(event) {
@@ -291,10 +302,11 @@ async function route(event) {
 
   if (endpoint === 'commands') {
     if (method !== 'POST') throw new ApiError(405, 'METHOD_NOT_ALLOWED', 'Chỉ hỗ trợ POST /api/commands.');
-    const current = await ensureState();
     const command = parseJsonBody(event);
     command.actorKey = auth.staffKey;
     delete command.actorId;
+    const expectedVersion = Number.isInteger(command.expectedVersion) ? command.expectedVersion : null;
+    const current = await ensureState({ expectedVersion });
     const result = executeCommand(current, command);
     if (!result.duplicate) await persistState(current.version, result.state);
     // The browser can apply the changed loan/inventory/room and event locally.
