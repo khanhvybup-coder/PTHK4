@@ -138,6 +138,8 @@ create table if not exists public.loans (
   year integer not null,
   sequence integer not null,
   borrower_id uuid not null references public.profiles(id),
+  external_organization text,
+  external_borrower_name text,
   room_id uuid references public.rooms(id),
   purpose text not null,
   note text not null default '',
@@ -156,6 +158,9 @@ create table if not exists public.loans (
   updated_at timestamptz not null default now(),
   unique (year, sequence)
 );
+
+alter table public.loans add column if not exists external_organization text;
+alter table public.loans add column if not exists external_borrower_name text;
 
 create table if not exists public.loan_items (
   id uuid primary key default gen_random_uuid(),
