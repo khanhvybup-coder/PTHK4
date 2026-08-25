@@ -300,10 +300,20 @@
             <form id="borrowForm">
               <div class="borrow-form-grid">
                 <div class="borrow-form-column">
-                  <label class="form-field">
+                  <label class="form-field" id="borrowerAccountField">
                     <span>Người mượn <b>*</b></span>
                     <select id="borrowerName" class="form-control" required></select>
                   </label>
+                  <div class="external-borrower-fields" id="externalBorrowerFields" hidden>
+                    <label class="form-field">
+                      <span>Đơn vị <b>*</b></span>
+                      <input id="externalOrganization" class="form-control" type="text" maxlength="200" autocomplete="organization" placeholder="Nhập tên đơn vị..." />
+                    </label>
+                    <label class="form-field">
+                      <span>Người mượn <b>*</b></span>
+                      <input id="externalBorrowerName" class="form-control" type="text" maxlength="200" autocomplete="name" placeholder="Nhập họ và tên người mượn..." />
+                    </label>
+                  </div>
                   <label class="form-field">
                     <span>Phòng thực hành <b>*</b></span>
                     <select id="borrowRoom" class="form-control" required>

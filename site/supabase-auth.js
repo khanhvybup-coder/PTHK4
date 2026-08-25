@@ -244,6 +244,7 @@
 
   window.KTHSAuth = {
     ready: () => readyPromise,
+    isAvailable: () => Boolean(config && !initializationError),
     signIn,
     signOut,
     updatePassword,

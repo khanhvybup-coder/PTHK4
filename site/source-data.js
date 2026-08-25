@@ -41,6 +41,11 @@ window.KTHS_SOURCE_DATA = {
       "name": "Phạm Minh Quân",
       "role": "teacher",
       "title": "GV"
+    },
+    "external": {
+      "name": "Đơn vị khác",
+      "role": "teacher",
+      "title": "Ngoài Khoa KTHS"
     }
   },
   "permissions": [

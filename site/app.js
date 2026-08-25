@@ -157,7 +157,7 @@ function passwordForUser(key) {
 }
 
 function isUserAuthenticated(key = activeUserKey) {
-  if (window.KTHSAuth) return window.KTHSAuth.isAuthenticated(key);
+  if (window.KTHSAuth?.isAvailable?.()) return window.KTHSAuth.isAuthenticated(key);
   return authenticatedUserKey === key;
 }
 
@@ -216,7 +216,7 @@ function closeTopProfileMenu() {
 async function authenticateUser(key, value) {
   if (key !== activeUserKey) return false;
   const input = document.querySelector(`.profile-password-input[data-password-for="${CSS.escape(key)}"]`);
-  if (window.KTHSAuth) {
+  if (window.KTHSAuth?.isAvailable?.()) {
     try {
       const profile = await window.KTHSAuth.signIn(key, String(value || ''));
       authenticatedUserKey = profile.staffKey;
@@ -273,7 +273,7 @@ async function changeUserPassword(key) {
     showToast('Mật khẩu mới không được để trống');
     return;
   }
-  if (window.KTHSAuth) {
+  if (window.KTHSAuth?.isAvailable?.()) {
     try {
       await window.KTHSAuth.updatePassword(trimmed);
       await window.KTHSAuth.signOut();
@@ -310,7 +310,7 @@ function renderProfileOptions(containerId, { passwordOnly = false } = {}) {
         <span><strong>${escapeHtml(user.name)}</strong><small>${escapeHtml(staffTitleFor(key, user))}${isUserAuthenticated(key) ? ' · Đã xác thực' : ''}</small></span>
       </button>
       ${passwordOnly ? `<div class="profile-password-row">
-        <input class="profile-password-input" type="password" data-password-for="${escapeHtml(key)}" placeholder="Nhập mật khẩu" autocomplete="current-password" aria-label="Mật khẩu ${escapeHtml(user.name)}" />
+        <input class="profile-password-input" type="password" data-password-for="${escapeHtml(key)}" placeholder="Nhập mật khẩu" autocomplete="off" aria-label="Mật khẩu ${escapeHtml(user.name)}" />
         <button class="change-password-button" type="button" data-change-password-for="${escapeHtml(key)}"${key !== activeUserKey || !isUserAuthenticated(key) ? ' disabled' : ''}>Đổi MK</button>
       </div>` : ''}
     </div>`).join('');
@@ -392,7 +392,11 @@ function staffOptionMarkup({ approversOnly = false } = {}) {
 
 function roomOptionMarkup() {
   const rooms = roomData.length ? roomData : sourceData.rooms;
-  return rooms.map((room) => `<option value="${escapeHtml(room.name)}">${escapeHtml(room.name)}</option>`).join('');
+  const roomOptions = rooms
+    .filter((room) => String(room?.name || '').trim() && String(room.name).trim() !== 'Khác')
+    .map((room) => `<option value="${escapeHtml(room.name)}">${escapeHtml(room.name)}</option>`)
+    .join('');
+  return roomOptions + '<option value="Khác">Khác</option>';
 }
 
 function assetOptionMarkup({ includePlaceholder = false } = {}) {

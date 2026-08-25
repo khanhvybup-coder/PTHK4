@@ -113,6 +113,14 @@
     return loan?.borrowerName || user(borrowerKey(loan)).name;
   }
 
+  function borrowerOrganization(loan) {
+    return String(loan?.externalOrganization || loan?.borrowerOrganization || '').trim();
+  }
+
+  function isExternalActor(key = actorKey) {
+    return key === 'external';
+  }
+
   function loanStatus(loan) {
     return loan?.status || 'pending_manager';
   }
@@ -894,6 +902,19 @@
       if (option) borrower.value = option.value;
       borrower.disabled = true;
     }
+    const external = isExternalActor();
+    const accountField = document.getElementById('borrowerAccountField');
+    const externalFields = document.getElementById('externalBorrowerFields');
+    const organization = document.getElementById('externalOrganization');
+    const externalName = document.getElementById('externalBorrowerName');
+    if (accountField) accountField.hidden = external;
+    if (externalFields) externalFields.hidden = !external;
+    if (organization) organization.required = external;
+    if (externalName) externalName.required = external;
+    if (!external) {
+      if (organization) organization.value = '';
+      if (externalName) externalName.value = '';
+    }
   }
 
   function collectBorrowPayload() {
@@ -906,6 +927,8 @@
     })).filter((item) => item.assetId);
     return {
       borrowerId: actorKey,
+      externalOrganization: isExternalActor() ? (document.getElementById('externalOrganization')?.value.trim() || '') : '',
+      externalBorrowerName: isExternalActor() ? (document.getElementById('externalBorrowerName')?.value.trim() || '') : '',
       room: document.getElementById('borrowRoom')?.value || '',
       purpose: document.getElementById('borrowPurpose')?.value.trim() || '',
       borrowDate: document.getElementById('borrowDate')?.value || '',
@@ -920,6 +943,9 @@
     const payload = collectBorrowPayload();
     if (!payload.room || !payload.purpose || !payload.borrowDate || !payload.expectedReturnDate) {
       return notify('Vui lòng nhập đầy đủ phòng, mục đích và thời gian mượn');
+    }
+    if (isExternalActor() && (!payload.externalOrganization || !payload.externalBorrowerName)) {
+      return notify('Vui lòng nhập đầy đủ đơn vị và người mượn');
     }
     if (payload.expectedReturnDate < payload.borrowDate) {
       return notify('Ngày trả dự kiến không được sớm hơn ngày mượn');
@@ -971,6 +997,7 @@
       details.innerHTML = `
         <div><dt>Mã phiếu</dt><dd><button class="workflow-code" type="button" data-workflow-action="details" data-loan-id="${escapeHtml(loanId(loan))}">${escapeHtml(loanCode(loan))}</button></dd></div>
         <div><dt>Người mượn</dt><dd>${escapeHtml(borrowerName(loan))}</dd></div>
+        ${borrowerOrganization(loan) ? `<div><dt>Đơn vị</dt><dd>${escapeHtml(borrowerOrganization(loan))}</dd></div>` : ''}
         <div><dt>Mục đích</dt><dd>${escapeHtml(loan.purpose || '')}</dd></div>
         <div><dt>Phòng thực hành</dt><dd>${escapeHtml(loan.room || '')}</dd></div>
         <div><dt>Ngày mượn</dt><dd>${escapeHtml(formatDate(loan.borrowDate))}</dd></div>
@@ -1290,7 +1317,11 @@
     }
     const recipient = document.getElementById('handoffRecipient');
     populatePersonSelect(recipient, borrowerKey(loan));
-    if (recipient) recipient.disabled = true;
+    if (recipient) {
+      const selected = recipient.selectedOptions[0];
+      if (selected && borrowerKey(loan) === 'external') selected.textContent = borrowerName(loan);
+      recipient.disabled = true;
+    }
     const room = document.getElementById('handoffRoom');
     if (room) room.value = loan.room || room.value;
     const date = document.getElementById('handoffDate');
@@ -1354,7 +1385,11 @@
     }
     const returnBorrower = document.getElementById('returnBorrower');
     populatePersonSelect(returnBorrower, borrowerKey(loan));
-    if (returnBorrower) returnBorrower.disabled = true;
+    if (returnBorrower) {
+      const selected = returnBorrower.selectedOptions[0];
+      if (selected && borrowerKey(loan) === 'external') selected.textContent = borrowerName(loan);
+      returnBorrower.disabled = true;
+    }
     const room = document.getElementById('returnRoom');
     if (room) room.value = submitted.room || loan.room || room.value;
     const date = document.getElementById('returnDate');
@@ -1504,6 +1539,7 @@
     return `<div class="workflow-ticket-status"><span class="status ${escapeHtml(meta.css)}">${escapeHtml(meta.label)}</span></div>
       <dl class="workflow-ticket-facts">
         ${detailFact('Người mượn', borrowerName(loan))}
+        ${borrowerOrganization(loan) ? detailFact('Đơn vị', borrowerOrganization(loan)) : ''}
         ${detailFact('Phòng thực hành', loan.room)}
         ${detailFact('Ngày mượn', formatDate(loan.borrowDate))}
         ${detailFact('Ngày trả dự kiến', formatDate(loan.expectedReturnDate))}
