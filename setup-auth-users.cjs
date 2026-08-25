@@ -6,7 +6,8 @@ const staff = [
   { key: 'thanh', name: 'Đậu Trung Thành', title: 'PTK', role: 'teacher' },
   { key: 'huan', name: 'Trần Xuân Huấn', title: 'Cán bộ quản lý', role: 'manager' },
   { key: 'be', name: 'Nguyễn Văn Bé', title: 'GV', role: 'teacher' },
-  { key: 'quan', name: 'Phạm Minh Quân', title: 'GV', role: 'teacher' }
+  { key: 'quan', name: 'Phạm Minh Quân', title: 'GV', role: 'teacher' },
+  { key: 'external', name: 'Đơn vị khác', title: 'Ngoài Khoa KTHS', role: 'teacher' }
 ];
 
 const url = String(process.env.SUPABASE_URL || '').replace(/\/+$/, '');

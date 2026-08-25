@@ -6,13 +6,18 @@ Gói này đã gồm frontend, Netlify Function và dữ liệu khởi tạo Sup
 
 1. Tạo một Supabase project và sao lưu nếu project đã có dữ liệu.
 2. Mở SQL Editor, chạy toàn bộ `supabase/001_schema.sql`. Tệp này chạy lặp lại an toàn, bổ sung RLS, bảng tín hiệu Realtime và publication mà không xóa dòng dữ liệu `main`.
-3. Tạo 8 tài khoản Auth và liên kết `profiles` bằng script dưới đây. Tài khoản mới dùng mật khẩu mặc định `3103`; script không đặt lại mật khẩu của tài khoản đã tồn tại.
+3. Tạo 9 tài khoản Auth (gồm tài khoản `Đơn vị khác`) và liên kết `profiles` bằng script dưới đây. Tài khoản mới dùng mật khẩu mặc định `3103`; script không đặt lại mật khẩu của tài khoản đã tồn tại.
 
 ```powershell
 $env:SUPABASE_URL="https://YOUR_PROJECT_REF.supabase.co"
 $env:SUPABASE_SERVICE_ROLE_KEY="YOUR_SERVICE_ROLE_KEY"
 node setup-auth-users.cjs
 ```
+
+Nếu project đã được triển khai trước khi có chức năng `Đơn vị khác`, chạy thêm
+`supabase/002_external_borrowers.sql` trong Supabase SQL Editor, sau đó chạy lại
+`node setup-auth-users.cjs`. Script chỉ bổ sung tài khoản `external@<domain>` nếu
+chưa có và không đặt lại mật khẩu các tài khoản cũ.
 
 4. Không cần đưa `migration/workflow-state.json` lên thư mục public. Lần gọi API đầu tiên sau khi đăng nhập sẽ tự nhập bản dữ liệu cũ đóng kèm trong Netlify Function nếu bảng `kths_app_state` đang trống.
 
