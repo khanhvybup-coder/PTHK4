@@ -120,7 +120,8 @@ const staff = {
   thanh: { name: 'Đậu Trung Thành', role: 'teacher', title: 'PTK' },
   huan: { name: 'Trần Xuân Huấn', role: 'manager', title: 'Cán bộ quản lý' },
   be: { name: 'Nguyễn Văn Bé', role: 'teacher', title: 'GV' },
-  quan: { name: 'Phạm Minh Quân', role: 'teacher', title: 'GV' }
+  quan: { name: 'Phạm Minh Quân', role: 'teacher', title: 'GV' },
+  external: { name: 'Đơn vị khác', role: 'teacher', title: 'Ngoài Khoa KTHS' }
 };
 
 const allowedTransitions = {
@@ -680,6 +681,9 @@ function applyCommand(state, command, actorId, actor, now) {
     fail(borrowerId !== actorId, 403, 'FORBIDDEN', 'Người sử dụng chỉ được gửi phiếu cho chính mình.', { borrowerId, actorId });
     const borrower = state.staff[borrowerId];
     fail(!borrower, 400, 'VALIDATION_ERROR', 'Người mượn không hợp lệ.', { borrowerId });
+    const externalBorrower = borrowerId === 'external';
+    const externalOrganization = textValue(payload.externalOrganization, 'externalOrganization', { required: externalBorrower, max: 200 });
+    const externalBorrowerName = textValue(payload.externalBorrowerName, 'externalBorrowerName', { required: externalBorrower, max: 200 });
     const borrowDate = dateValue(payload.borrowDate, 'borrowDate', { required: true });
     const expectedReturnDate = dateValue(payload.expectedReturnDate, 'expectedReturnDate', { required: true });
     fail(expectedReturnDate < borrowDate, 400, 'VALIDATION_ERROR', 'Ngày trả dự kiến không được sớm hơn ngày mượn.', { field: 'expectedReturnDate' });
@@ -694,7 +698,8 @@ function applyCommand(state, command, actorId, actor, now) {
       sequence: generatedCode.sequence,
       borrowerId,
       borrowerKey: borrowerId,
-      borrowerName: borrower.name,
+      borrowerName: externalBorrower ? externalBorrowerName : borrower.name,
+      ...(externalBorrower ? { externalOrganization, externalBorrowerName } : {}),
       room: textValue(payload.room, 'room', { required: true, max: 200 }),
       purpose: textValue(payload.purpose, 'purpose', { required: true, max: 500 }),
       borrowDate,
@@ -706,7 +711,13 @@ function applyCommand(state, command, actorId, actor, now) {
       updatedAt: now
     };
     state.loans.unshift(loan);
-    details = { borrowerId, room: loan.room, purpose: loan.purpose };
+    details = {
+      borrowerId,
+      borrowerName: loan.borrowerName,
+      ...(externalBorrower ? { externalOrganization } : {}),
+      room: loan.room,
+      purpose: loan.purpose
+    };
   } else {
     loan = findLoan(state, command.loanId || payload.loanId);
     fromStatus = loan.status;
@@ -771,7 +782,7 @@ function applyCommand(state, command, actorId, actor, now) {
       validateCatalogEquipment(state, equipment, { checkAvailability: true, requireLendable: true, excludedLoanId: loan.id });
       loan.handoff = {
         recipientId,
-        recipientName: state.staff[recipientId].name,
+        recipientName: recipientId === 'external' ? loan.borrowerName : state.staff[recipientId].name,
         room: textValue(payload.room || loan.room, 'room', { required: true, max: 200 }),
         date: dateValue(payload.date || current.date, 'date', { required: true }),
         time: timeValue(payload.time || current.time, 'time'),
@@ -791,7 +802,7 @@ function applyCommand(state, command, actorId, actor, now) {
       validateCatalogEquipment(state, equipment);
       loan.returnRequest = {
         returnedBy: actorId,
-        returnedByName: actor.name,
+        returnedByName: actorId === 'external' ? loan.borrowerName : actor.name,
         room: textValue(payload.room || loan.handoff?.room || loan.room, 'room', { required: true, max: 200 }),
         date: dateValue(payload.date || current.date, 'date', { required: true }),
         time: timeValue(payload.time || current.time, 'time'),
